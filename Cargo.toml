@@ -1,0 +1,16 @@
+[package]
+name = "advent-of-code"
+version = "0.1.0"
+authors = ["Traxx186"]
+edition = "2021"
+rust-version = "1.73"
+readme = "README.md"
+repository = "https://github.com/Traxx186/advent-of-code"
+
+[dependencies]
+itertools = "0.11.0"
+num = "0.4.1"
+regex = "1.10.2"
+
+[workspace]
+members = ["2021", "2022", "2023"]
