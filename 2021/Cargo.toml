@@ -1,0 +1,12 @@
+[package]
+name = "aoc_2021"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "aoc_2021"
+path = "src/main.rs"
+
+[dependencies]
+aoc_common = { version = "0.1.0", path = ".."}
+itertools = "0.11.0"
