@@ -21,8 +21,8 @@
 
 My solutions for the [Advent of Code](https://adventofcode.com/events)
 
-| Year | Event page                                                     | Completed |
-|------|----------------------------------------------------------------|-----------|
-| 2022 | [https://adventofcode.com/2023](https://adventofcode.com/2023) | 0/25      |
-| 2022 | [https://adventofcode.com/2022](https://adventofcode.com/2022) | 22/25     |
-| 2021 | [https://adventofcode.com/2021](https://adventofcode.com/2021) | 12/25     |
+| Year | Solution                                                                           | Completed |
+|------|------------------------------------------------------------------------------------|-----------|
+| 2023 | [Advent of Code 2023](https://github.com/Traxx186/advent-of-code/tree/master/2023) | 0/25      |
+| 2022 | [Advent of Code 2022](https://github.com/Traxx186/advent-of-code/tree/master/2022) | 22/25     |
+| 2021 | [Advent of Code 2021](https://github.com/Traxx186/advent-of-code/tree/master/2021) | 12/25     |

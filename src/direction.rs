@@ -6,3 +6,12 @@ pub enum Direction {
     Right
 }
 
+impl From<char> for Direction {
+    fn from(value: char) -> Self {
+        match value {
+            '<' => Direction::Left,
+            '>' => Direction::Right,
+            _ => panic!("Not a valid character")
+        }
+    }
+}

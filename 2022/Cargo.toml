@@ -1,5 +1,5 @@
 [package]
-name = "aoc_2021"
+name = "aoc-2022"
 version = "0.1.0"
 authors = ["Traxx186"]
 edition = "2021"
@@ -8,9 +8,12 @@ readme = "README.md"
 repository = "https://github.com/Traxx186/advent-of-code"
 
 [[bin]]
-name = "aoc_2021"
+name = "aoc_2022"
 path = "src/main.rs"
 
 [dependencies]
 aoc_common = { version = "0.1.0", path = ".."}
 itertools = "0.11.0"
+nom = "7.1.3"
+num = "0.4.1"
+regex = "1.10.2"
