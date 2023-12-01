@@ -13,3 +13,5 @@ path = "src/main.rs"
 
 [dependencies]
 aoc_common = { version = "0.1.0", path = ".."}
+itertools = "0.12.0"
+regex = "1.10.2"
