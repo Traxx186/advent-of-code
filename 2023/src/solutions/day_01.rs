@@ -1,8 +1,6 @@
 use std::collections::HashMap;
 
 use aoc_common::{Solution, load};
-use itertools::Itertools;
-use regex::Regex;
 
 pub struct Day01;
 
@@ -17,9 +15,18 @@ impl Solution for Day01 {
         let mut calibration_values: Vec<isize> = Vec::new();
 
         for line in input.lines() {
-            let first_last_number = find_first_last_number(line);
-            calibration_values.push(first_last_number.parse::<isize>().unwrap())
-        }        
+            let first_number = line.chars()
+                .find(|char| char.is_ascii_digit())
+                .map(|char| char as isize - 48)
+                .unwrap_or(0);
+
+            let last_number = line.chars().rev()
+                .find(|char| char.is_ascii_digit())
+                .map(|char| char as isize - 48)
+                .unwrap_or(0);
+
+            calibration_values.push(first_number * 10 + last_number);
+        }
 
         let sum: isize = calibration_values.iter().sum();
         sum.to_string()
@@ -30,9 +37,10 @@ impl Solution for Day01 {
         let mut calibration_values: Vec<isize> = Vec::new();
 
         for line in input.lines() {
-            let replaced_text_numbers = text_to_number(line);
-            let first_last_number = find_first_last_number(line);
-            calibration_values.push(first_last_number.parse::<isize>().unwrap())
+            let first_number = find_first_number(line);
+            let last_number = find_last_number(line);
+
+            calibration_values.push(first_number * 10 + last_number);
         }
 
         let sum: isize = calibration_values.iter().sum();
@@ -40,22 +48,49 @@ impl Solution for Day01 {
     }
 }
 
-fn find_first_last_number(input: &str) -> String {
-    let regex = Regex::new(r"\d").unwrap();
-    let numbers = regex.find_iter(line)
-        .map(|f| f.as_str())
-        .collect_vec();
+fn find_first_number(line: &str) -> isize {
+    let text_number: HashMap<&str, isize> = numbers_map();
+    let mut searched_string = String::new();
 
-    let mut first_numer = numbers.first().unwrap().to_string();
-    let second_numer = numbers.last().unwrap();
+    for char in line.chars() {
+        if char.is_ascii_digit() {
+            return char as isize - 48;
+        }
 
-    first_numer.push_str(second_numer);
-    first_numer
+        searched_string.push(char);
+        for (key, number) in &text_number {
+            if searched_string.contains(key) {
+                return number.to_owned();
+            }
+        }
+    }
+
+    return 0;
 }
 
-fn text_to_number(&mut input: &str) -> String {
-    let text_number = HashMap::from([
-        ("zero", 0),
+fn find_last_number(line: &str) -> isize {
+    let text_number: HashMap<&str, isize> = numbers_map();
+    let mut searched_string = String::new();
+
+    for char in line.chars().rev() {
+        if char.is_ascii_digit() {
+            return char as isize - 48;
+        }
+
+        searched_string.insert(0, char);
+        for (key, number) in &text_number {
+            if searched_string.contains(key) {
+                return number.to_owned();
+            }
+        }
+    }
+
+    return 0;
+
+}
+
+fn numbers_map() -> HashMap<&'static str, isize> {
+    HashMap::from([
         ("one", 1),
         ("two", 2),
         ("three", 3),
@@ -65,9 +100,5 @@ fn text_to_number(&mut input: &str) -> String {
         ("seven", 7),
         ("eight", 8), 
         ("nine", 9),
-    ]);
-
-    for (key, value) in text_number.into_iter() {
-        input.replace(key, value);
-    }
+    ])
 }
