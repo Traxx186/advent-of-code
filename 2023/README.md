@@ -23,3 +23,4 @@ My solutions for the [Advent of Code 2023](https://adventofcode.com/2023)
 
 | Day | Name                                                  | Done |
 |-----|-------------------------------------------------------|------|
+|  01 | [Trebuchet?!](./src/solutions/day_01.rs)             | 1/2 |
