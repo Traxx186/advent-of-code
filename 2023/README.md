@@ -17,10 +17,11 @@
                                                           #
 </pre>
 
-# 🎄 Advent of Code 2023s 🎄
+# 🎄 Advent of Code 2023 🎄
 
 My solutions for the [Advent of Code 2023](https://adventofcode.com/2023)
 
 | Day | Name                                                  | Done |
 |-----|-------------------------------------------------------|------|
-|  01 | [Trebuchet?!](./src/solutions/day_01.rs)              | 2/2 |
+| 01  | [Trebuchet?!](./src/solutions/day_01.rs)              | 2/2  |
+| 02  | [Cube Conundrum](./src/solutions/day_02.rs)           | 0/2  |
