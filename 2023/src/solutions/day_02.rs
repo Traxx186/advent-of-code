@@ -42,7 +42,17 @@ impl Solution for Day02 {
     }
 
     fn part_2(&self) -> String {
-        todo!()
+        let input = load("day_02");
+        let games = input.lines()
+            .map(|line| parse_game(line))
+            .collect_vec();
+
+        let total_power: isize = games.iter()
+            .map(|game| get_smallest_bag(game))
+            .map(|bag| bag.values().product::<isize>())
+            .sum();
+
+        total_power.to_string()
     }
 }
 
@@ -53,7 +63,7 @@ fn parse_game(line: &str) -> Game {
         .collect::<String>()
         .parse()
         .unwrap();
-
+    
     let reveals = reveals_part.split(';')
         .map(|r| r.split(',').map(parse_color_reveal).collect())
         .collect();
@@ -62,7 +72,7 @@ fn parse_game(line: &str) -> Game {
 }
 
 fn parse_color_reveal(reveal: &str) -> (Color, isize) {
-    let (color_str, amount_str) = reveal.split_once(' ').unwrap();
+    let (amount_str, color_str) = reveal.trim().split_once(' ').unwrap();
 
     (color_str.into(), amount_str.parse().unwrap())
 }
@@ -77,6 +87,20 @@ fn is_game_possible(game: &Game, bag: &HashMap<Color, isize>) -> Option<isize> {
     }
 
     None
+}
+
+fn get_smallest_bag(game: &Game) -> HashMap<Color, isize> {
+    let mut bag = HashMap::new();
+    let all_reveals = game.reveals.iter().flat_map(|reveal| reveal.iter());
+
+    for (color, number) in all_reveals {
+        let max = bag.entry(*color).or_insert(*number);
+        if *max < *number {
+            *max = *number;
+        }
+    }
+
+    bag
 }
 
 impl Into<Color> for &str {

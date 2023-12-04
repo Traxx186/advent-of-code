@@ -23,6 +23,6 @@ My solutions for the [Advent of Code](https://adventofcode.com/events)
 
 | Year | Solution                                                                           | Completed |
 |------|------------------------------------------------------------------------------------|-----------|
-| 2023 | [Advent of Code 2023](https://github.com/Traxx186/advent-of-code/tree/master/2023) | 1/25      |
+| 2023 | [Advent of Code 2023](https://github.com/Traxx186/advent-of-code/tree/master/2023) | 2/25      |
 | 2022 | [Advent of Code 2022](https://github.com/Traxx186/advent-of-code/tree/master/2022) | 22/25     |
 | 2021 | [Advent of Code 2021](https://github.com/Traxx186/advent-of-code/tree/master/2021) | 12/25     |
