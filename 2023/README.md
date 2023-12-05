@@ -25,3 +25,5 @@ My solutions for the [Advent of Code 2023](https://adventofcode.com/2023)
 |-----|-------------------------------------------------------|------|
 | 01  | [Trebuchet?!](./src/solutions/day_01.rs)              | 2/2  |
 | 02  | [Cube Conundrum](./src/solutions/day_02.rs)           | 2/2  |
+| 03  | [Gear Ratios](./src/solutions/day_03.rs)              | 2/2  |
+| 04  | [Scratchcards](./src/solutions//day_04.rs)            | 2/2  |
