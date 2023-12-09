@@ -29,3 +29,4 @@ My solutions for the [Advent of Code 2023](https://adventofcode.com/2023)
 | 04  | [Scratchcards](./src/solutions//day_04.rs)                   | 2/2  |
 | 05  | [If You Give A Seed A Fertilizer](./src/solutions/day_05.rs) | 2/2  |
 | 06  | [Wait For It](./src/solutions/day_06.rs)                     | 2/2  |
+| 07  | [Camel Cards](./src/solutions/day_07.rs)                     | 2/2  |
