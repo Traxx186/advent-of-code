@@ -1,4 +1,4 @@
-use std::{collections::HashMap, cmp::Ordering, mem};
+use std::{collections::HashMap, cmp::Ordering};
 
 use aoc_common::{Solution, load};
 use itertools::Itertools;
