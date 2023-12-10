@@ -10,7 +10,6 @@ impl Solution for Day08 {
 
     fn part_1(&self) -> String {
         let input = load("day_08");
-        let mut steps = 0;
         let (instructions_str, nodes_lines) = input.split_once("\n\n").unwrap();
         
         let nodes: Vec<Node> = nodes_lines.lines()
@@ -21,31 +20,37 @@ impl Solution for Day08 {
             .map(|c| c.into())
             .collect_vec();
 
-        let mut current_node = nodes.iter()
+        let start_node = nodes.iter()
             .find(|n| n.id == "AAA")
             .unwrap();
-
-        for instruction in instructions.iter().cycle() {
-            let target = match instruction {
-                Instruction::Left => &current_node.left,
-                Instruction::Right => &current_node.right,
-            };
-
-            steps += 1;
-            if target == "ZZZ" {
-                break;
-            }
-
-            current_node = nodes.iter()
-                .find(|n| n.id == target.to_owned())
-                .unwrap();
-        }
-
-        steps.to_string()
+        
+        count_steps(&instructions, start_node, &nodes, |s| s == "AAA")
+            .to_string()
     }
 
     fn part_2(&self) -> String {
-        todo!()
+        let input = load("day_08");
+        let (instructions_str, nodes_lines) = input.split_once("\n\n").unwrap();
+        
+        let nodes: Vec<Node> = nodes_lines.lines()
+            .map(|line| line.into())
+            .collect_vec();
+        
+        let instructions: Vec<Instruction> = instructions_str.chars()
+            .map(|c| c.into())
+            .collect_vec();
+
+        let steps = nodes.iter()
+            .filter_map(|node| 
+                node.id.ends_with('A')
+                    .then_some(node)
+                    .map(|n| count_steps(&instructions, n, &nodes, |s| s.ends_with('Z')))
+            )
+            .collect_vec();
+        
+        steps.iter()
+            .fold(1, |num, ans| num * ans / gcd(num, *ans))
+            .to_string()
     }
 }
 
@@ -84,5 +89,44 @@ impl Into<Instruction> for char {
             'R' => Instruction::Right,
             _ => panic!("{} invalid instruction", self)
         }
+    }
+}
+
+fn count_steps<F>(
+    instructions: &Vec<Instruction>,
+    start_node: &Node,
+    nodes: &Vec<Node>, 
+    end_condition: F
+) -> isize
+where F: Fn(&String) -> bool 
+{
+    let mut steps = 0;
+    let mut node = start_node.clone();
+
+    for instruction in instructions.iter().cycle() {
+        let target = match instruction {
+            Instruction::Left => &node.left,
+            Instruction::Right => &node.right,
+        };
+
+        steps += 1;
+        if end_condition(target) {
+            break;
+        }
+
+        node = nodes.iter()
+            .find(|n| n.id == target.to_owned())
+            .unwrap()
+            .clone();
+    }
+
+    steps
+}
+
+fn gcd(a: isize, b: isize) -> isize {
+    if b == 0 {
+       a
+    } else {
+        gcd(b, a % b)
     }
 }

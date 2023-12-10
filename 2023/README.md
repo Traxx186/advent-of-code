@@ -30,4 +30,4 @@ My solutions for the [Advent of Code 2023](https://adventofcode.com/2023)
 | 05  | [If You Give A Seed A Fertilizer](./src/solutions/day_05.rs) | 2/2  |
 | 06  | [Wait For It](./src/solutions/day_06.rs)                     | 2/2  |
 | 07  | [Camel Cards](./src/solutions/day_07.rs)                     | 2/2  |
-| 08  | [Haunted Wasteland](./src/solutions/day_08.rs)               | 0/2  |
+| 08  | [Haunted Wasteland](./src/solutions/day_08.rs)               | 2/2  |
