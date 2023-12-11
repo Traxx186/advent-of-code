@@ -31,3 +31,4 @@ My solutions for the [Advent of Code 2023](https://adventofcode.com/2023)
 | 06  | [Wait For It](./src/solutions/day_06.rs)                     | 2/2  |
 | 07  | [Camel Cards](./src/solutions/day_07.rs)                     | 2/2  |
 | 08  | [Haunted Wasteland](./src/solutions/day_08.rs)               | 2/2  |
+| 09  | [Mirage Maintenance](./src/solutions/day_09.rs)              | 2/2  |

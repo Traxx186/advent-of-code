@@ -24,7 +24,7 @@ impl Solution for Day08 {
             .find(|n| n.id == "AAA")
             .unwrap();
         
-        count_steps(&instructions, start_node, &nodes, |s| s == "AAA")
+        count_steps(&instructions, start_node, &nodes, |s| s == "ZZZ")
             .to_string()
     }
 
