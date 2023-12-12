@@ -15,5 +15,6 @@ path = "src/main.rs"
 aoc_common = { version = "0.1.0", path = ".."}
 indicatif = { version = "0.17.7", features = ["rayon"] }
 itertools = "0.12.0"
+once_cell = "1.19.0"
 rayon = "1.8.0"
 regex = "1.10.2"

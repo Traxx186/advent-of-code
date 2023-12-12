@@ -8,6 +8,7 @@ readme = "README.md"
 repository = "https://github.com/Traxx186/advent-of-code"
 
 [dependencies]
+itertools = "0.12.0"
 num = "0.4.1"
 
 [workspace]

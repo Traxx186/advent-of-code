@@ -84,10 +84,10 @@ fn parse_input_to_moves(input: String) -> Vec<Movement> {
 
 fn get_move_direction(direction: &str) -> Direction {
     match direction {
-        "U" => Direction::Up,
-        "D" => Direction::Down,
-        "L" => Direction::Left,
-        "R" => Direction::Right,
+        "U" => Direction::North,
+        "D" => Direction::South,
+        "L" => Direction::West,
+        "R" => Direction::East,
         _ => panic!("No valid move direction")
     }
 }
@@ -115,10 +115,11 @@ impl Point {
 
     fn move_direction(&self, direction: Direction) -> Point {
         match direction {
-            Direction::Up => self.move_to(0, 1),
-            Direction::Down => self.move_to(0, -1),
-            Direction::Left => self.move_to(-1, 0),
-            Direction::Right => self.move_to(1, 0)
+            Direction::North => self.move_to(0, 1),
+            Direction::South => self.move_to(0, -1),
+            Direction::West => self.move_to(-1, 0),
+            Direction::East => self.move_to(1, 0),
+            _ => panic!("Invalid directon")
         }
     }
 }

@@ -125,8 +125,8 @@ impl Chaimber for Vec<Vec<bool>> {
             *direction_index += 1;
 
             let try_move_to = match direction {
-                Direction::Left => (brick_origin.0 + 1, brick_origin.1),
-                Direction::Right => (brick_origin.0 - 1, brick_origin.1),
+                Direction::West => (brick_origin.0 + 1, brick_origin.1),
+                Direction::East => (brick_origin.0 - 1, brick_origin.1),
                 _ => panic!("No valid direction")
             };
 
