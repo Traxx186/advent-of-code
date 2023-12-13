@@ -6,8 +6,6 @@ use once_cell::sync::Lazy;
 
 const CARDINAL: [Direction; 4] = [Direction::North, Direction::East, Direction::South, Direction::West];
 
-const ORDINAL: [Direction; 4] = [Direction::NorthEast, Direction::NorthWest, Direction::SouthEast, Direction::SouthWest];
-
 static PIPES: Lazy<HashMap<Pipe, Vec<(Direction, Direction)>>> = Lazy::new(|| HashMap::from_iter([
     (Pipe::Vertical, vec![(Direction::North, Direction::North), (Direction::South, Direction::South)]),
     (Pipe::Horizontal, vec![(Direction::East, Direction::East), (Direction::West, Direction::West)]),
@@ -55,10 +53,10 @@ impl Solution for Day10 {
                     return false;
                 }
 
-                let row = cell.row;
+                let row = cell.coordinate.x;
                 let mut crosses = 0;
 
-                for column in 0..cell.column {
+                for column in 0..cell.coordinate.y {
                     let next = grid.get_cell(row, column);
                     if vec![Pipe::Vertical, Pipe::BendSE, Pipe::BendSW].contains(&next.value) && pipes.contains(&next) {
                         crosses += 1;
@@ -132,7 +130,7 @@ fn try_loop_from_start(grid: &mut Matrix<Pipe>, start: Cell<Pipe>, start_dir: Di
                         .map(|pipe| *pipe.0)
                         .unwrap();
 
-                    let new_cell = grid.get_mut(cell.row, cell.column).unwrap();
+                    let new_cell = grid.get_mut(cell.coordinate.x, cell.coordinate.y).unwrap();
                     *new_cell = pipe_type;
                     
                     break;

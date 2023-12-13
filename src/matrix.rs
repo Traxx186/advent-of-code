@@ -2,25 +2,23 @@ use std::hash::{Hash, Hasher};
 
 use itertools::Itertools;
 
-use crate::direction::Direction;
+use crate::{direction::Direction, point::Point2D};
 
 #[derive(Debug, Clone, Copy, Eq)]
 pub struct Cell<T: Copy> {
     pub value: T,
-    pub column: usize,
-    pub row: usize
+    pub coordinate: Point2D<usize>,
 }
 
 impl<T: Copy> PartialEq for Cell<T> {
     fn eq(&self, other: &Self) -> bool {
-        self.column == other.column && self.row == other.row
+        self.coordinate == other.coordinate
     }
 }
 
 impl<T: Copy> Hash for Cell<T> {
     fn hash<H: Hasher>(&self, state: &mut H) {
-        self.column.hash(state);
-        self.row.hash(state);
+        self.coordinate.hash(state);
     }
 }
 
@@ -53,7 +51,7 @@ impl<T: Copy> Matrix<T> {
 
     pub fn get_cell(&self, row: usize, column: usize) -> Cell<T> {
         self.get(row, column)
-            .map(|t| Cell { value: t, row, column})
+            .map(|t| Cell { value: t, coordinate: Point2D { x: row, y: column }})
             .unwrap()
     }
 
@@ -65,60 +63,68 @@ impl<T: Copy> Matrix<T> {
     pub fn neighbour(&self, cell: &Cell<T>, direction: &Direction) -> Option<Cell<T>> {
         match direction {
             Direction::North => {
-                let column = cell.column;
-                let row = cell.row.checked_sub(1)?;
+                let column = cell.coordinate.y;
+                let row = cell.coordinate.x.checked_sub(1)?;
                 let value = self.get(row, column)?;
+                let coordinate = Point2D { x: row, y: column };
 
-                Some(Cell { value, column, row })
+                Some(Cell { value, coordinate })
             },
             Direction::NorthEast => {
-                let column = cell.column + 1;
-                let row = cell.row.checked_sub(1)?;
+                let column = cell.coordinate.y + 1;
+                let row = cell.coordinate.x.checked_sub(1)?;
                 let value = self.get(row, column)?;
+                let coordinate = Point2D { x: row, y: column };
 
-                Some(Cell { value, column, row })
+                Some(Cell { value, coordinate })
             },
             Direction::East => {
-                let row = cell.row;
-                let column = cell.column + 1;
+                let row = cell.coordinate.x;
+                let column = cell.coordinate.y + 1;
                 let value = self.get(row, column)?;
+                let coordinate = Point2D { x: row, y: column };
 
-                Some(Cell { value, column, row })
+                Some(Cell { value, coordinate })
             },
             Direction::SouthEast => {
-                let row = cell.row + 1;
-                let column = cell.column + 1;
+                let row = cell.coordinate.x + 1;
+                let column = cell.coordinate.y + 1;
                 let value = self.get(row, column)?;
+                let coordinate = Point2D { x: row, y: column };
 
-                Some(Cell { value, column, row })
+                Some(Cell { value, coordinate })
             },
             Direction::South => {
-                let row = cell.row + 1;
-                let column = cell.column;
+                let row = cell.coordinate.x + 1;
+                let column = cell.coordinate.y;
                 let value = self.get(row, column)?;
+                let coordinate = Point2D { x: row, y: column };
 
-                Some(Cell { value, column, row })
+                Some(Cell { value, coordinate })
             },
             Direction::SouthWest => {
-                let row = cell.row + 1;
-                let column = cell.column.checked_sub(1)?;
+                let row = cell.coordinate.x + 1;
+                let column = cell.coordinate.y.checked_sub(1)?;
                 let value = self.get(row, column)?;
+                let coordinate = Point2D { x: row, y: column };
 
-                Some(Cell { value, column, row })
+                Some(Cell { value, coordinate })
             },
             Direction::West => {
-                let row = cell.row;
-                let column = cell.column.checked_sub(1)?;
+                let row = cell.coordinate.x;
+                let column = cell.coordinate.y.checked_sub(1)?;
                 let value = self.get(row, column)?;
+                let coordinate = Point2D { x: row, y: column };
 
-                Some(Cell { value, column, row })
+                Some(Cell { value, coordinate })
             },
             Direction::NorthWest => {
-                let row = cell.row.checked_sub(1)?;
-                let column = cell.column.checked_sub(1)?;
+                let row = cell.coordinate.x.checked_sub(1)?;
+                let column = cell.coordinate.y.checked_sub(1)?;
                 let value = self.get(row, column)?;
+                let coordinate = Point2D { x: row, y: column };
 
-                Some(Cell { value, column, row })
+                Some(Cell { value, coordinate })
             },
         }
     }

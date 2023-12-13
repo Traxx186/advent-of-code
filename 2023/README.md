@@ -33,3 +33,4 @@ My solutions for the [Advent of Code 2023](https://adventofcode.com/2023)
 | 08  | [Haunted Wasteland](./src/solutions/day_08.rs)               | 2/2  |
 | 09  | [Mirage Maintenance](./src/solutions/day_09.rs)              | 2/2  |
 | 10  | [Pipe Maze](./src/solutions/day_10.rs)                       | 2/2  |
+| 11  | [Cosmic Expansion](./src/solutions/day_11.rs)                | 0/2  |
