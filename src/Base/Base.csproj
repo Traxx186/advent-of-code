@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyTitle>2024</AssemblyTitle>
+        <Version>1.0.0</Version>
+    </PropertyGroup>
+
+</Project>

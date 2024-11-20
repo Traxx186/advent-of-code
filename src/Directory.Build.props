@@ -1,0 +1,17 @@
+<Project>
+
+    <PropertyGroup>
+        <ProductName>AdventOfCode</ProductName>
+        <RootNamespace>$(ProductName).$(MSBuildProjectName)</RootNamespace>
+        <AssemblyName>$(ProductName).$(MSBuildProjectName)</AssemblyName>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        
+        <RepositoryUrl>https://github.com/Traxx186/advent-of-code</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <Authors>Traxx186</Authors>
+    </PropertyGroup>
+
+</Project>
