@@ -48,7 +48,7 @@ public readonly struct Matrix<T>
     }
 }
 
-public readonly struct Cell<T>(T value, Point2D<uint> coordinates)
+public readonly struct Cell<T>(T value, Point2D<uint> coordinates) : IEquatable<Cell<T>>
 {
     /// <summary>
     /// The value of the cell.
@@ -71,6 +71,9 @@ public readonly struct Cell<T>(T value, Point2D<uint> coordinates)
         return cell.Value.Equals(Value)
                && cell.Coordinates == Coordinates;
     }
+    
+    public bool Equals(Cell<T> other) =>
+        EqualityComparer<T>.Default.Equals(Value, other.Value) && Coordinates.Equals(other.Coordinates);
 
     public static bool operator ==(Cell<T> left, Cell<T> right) =>
         left.Equals(right);
