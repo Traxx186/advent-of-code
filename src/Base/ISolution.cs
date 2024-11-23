@@ -5,7 +5,7 @@ public interface ISolution
     /// <summary>
     /// The display name of the assignment.
     /// </summary>
-    string Name { get; protected set; }
+    string Name { get; }
     
     /// <summary>
     /// Executes the first part of the days assignment.

@@ -4,6 +4,8 @@
         <AssemblyTitle>2024</AssemblyTitle>
         <OutputType>Exe</OutputType>
         <Version>1.0.0</Version>
+        <AssemblyName>AdventOfCode.AoC2024</AssemblyName>
+        <RootNamespace>AdventOfCode.AoC2024</RootNamespace>
     </PropertyGroup>
     
     <ItemGroup>

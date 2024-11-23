@@ -14,4 +14,8 @@
         <Authors>Traxx186</Authors>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Include="Data\*.txt" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
 </Project>

@@ -76,7 +76,7 @@ public class Calendar(int year, ISolution[] solutions)
     public static string LoadInput(string fileName)
     {
         var currentDir = Environment.CurrentDirectory;
-        var inputPath = Path.Combine(currentDir, "data", fileName);
+        var inputPath = Path.Combine(currentDir, "Data", fileName);
         
         return File.ReadAllText(inputPath);
     }
