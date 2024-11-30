@@ -51,11 +51,12 @@ public class Calendar(int year, ISolution[] solutions)
     /// <param name="part">The part to run.</param>
     private void RunDay(int day, int part)
     {
+        var inputFile = Path.Combine("Data", $"day_{day:00}.txt");
         var solution = solutions[day - 1];
         var output = part switch
         {
-            1 => solution.Part1(),
-            2 => solution.Part2(),
+            1 => solution.Part1(inputFile),
+            2 => solution.Part2(inputFile),
             _ => null
         };
 
@@ -71,12 +72,12 @@ public class Calendar(int year, ISolution[] solutions)
     /// <summary>
     /// Reads the contents of the given input file.
     /// </summary>
-    /// <param name="fileName">Name of file to read.</param>
+    /// <param name="filePath">Path to file to read.</param>
     /// <returns>Contents of the file.</returns>
-    public static string LoadInput(string fileName)
+    public static string LoadInput(string filePath)
     {
         var currentDir = Environment.CurrentDirectory;
-        var inputPath = Path.Combine(currentDir, "Data", fileName);
+        var inputPath = Path.Combine(currentDir, filePath);
         
         return File.ReadAllText(inputPath);
     }
