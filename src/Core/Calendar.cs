@@ -1,4 +1,4 @@
-namespace AdventOfCode.Base;
+namespace AdventOfCode.Core;
 
 public class Calendar(int year, ISolution[] solutions)
 {

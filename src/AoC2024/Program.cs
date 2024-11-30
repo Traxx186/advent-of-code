@@ -1,5 +1,5 @@
 ﻿using AdventOfCode.Aoc2024.Solution;
-using AdventOfCode.Base;
+using AdventOfCode.Core;
 
 ISolution[] solutions =
 [

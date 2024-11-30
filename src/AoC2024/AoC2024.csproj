@@ -9,6 +9,6 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <ProjectReference Include="..\Base\Base.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\Core\Core.csproj" PrivateAssets="All" />
     </ItemGroup>
 </Project>

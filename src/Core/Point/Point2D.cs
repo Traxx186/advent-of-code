@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace AdventOfCode.Base.Point;
+namespace AdventOfCode.Core.Point;
 
 public readonly struct Point2D<T>(T x, T y) : IEquatable<Point2D<T>>
     where T : INumber<T>

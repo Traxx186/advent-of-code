@@ -1,4 +1,4 @@
-namespace AdventOfCode.Base;
+namespace AdventOfCode.Core;
 
 public interface ISolution
 {

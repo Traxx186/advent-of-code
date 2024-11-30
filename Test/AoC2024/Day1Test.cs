@@ -5,13 +5,8 @@ namespace Test.AoC2024;
 [TestFixture]
 public class Day1Test
 {
-    private readonly Day1 _day1;
+    private readonly Day1 _day1 = new();
 
-    public Day1Test()
-    {
-        _day1 = new Day1();
-    }
-    
     [Test]
     public void TestPart1()
     {

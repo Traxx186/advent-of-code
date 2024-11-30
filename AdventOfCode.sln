@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoC2024", "src\AoC2024\AoC2024.csproj", "{5A84EF3B-B49D-4134-BA70-EF28A4A07F75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "src\Base\Base.csproj", "{74B6F22C-B35F-46C3-851F-857C3BCFE7C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{74B6F22C-B35F-46C3-851F-857C3BCFE7C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{A4F28319-995D-4739-BC38-DC3A1D9FCD0A}"
 EndProject

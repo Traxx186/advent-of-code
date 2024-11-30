@@ -1,4 +1,4 @@
-using AdventOfCode.Base;
+using AdventOfCode.Core;
 
 namespace AdventOfCode.Aoc2024.Solution;
 

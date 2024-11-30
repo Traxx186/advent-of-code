@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace AdventOfCode.Base.Point;
+namespace AdventOfCode.Core.Point;
 
 public struct Point3D<T>(T x, T y, T z)
     where T : INumber<T>

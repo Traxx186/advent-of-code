@@ -1,6 +1,6 @@
-using AdventOfCode.Base.Point;
+using AdventOfCode.Core.Point;
 
-namespace AdventOfCode.Base;
+namespace AdventOfCode.Core;
 
 public readonly struct Matrix<T>
 {
