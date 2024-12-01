@@ -9,12 +9,39 @@ public class Day1 : ISolution
     public string Part1(string inputFile)
     {
         var data = Calendar.LoadInput(inputFile);
+        var (left, right) = ParseInput(data);
         
-        return "Part 1";
+        left.Sort();
+        right.Sort();
+        
+        var output = left.Zip(right, (l, r) => Math.Abs(l - r));
+        return output.Sum().ToString();
     }
 
     public string Part2(string inputFile)
     {
-        return string.Empty;
+        var data = Calendar.LoadInput(inputFile);
+        var (left, right) = ParseInput(data);
+        
+        var output = left.Select(l => l * right.Count(r => l == r))
+            .ToArray();
+        
+        return output.Sum().ToString();
+    }
+
+    private static (List<int> left, List<int> right) ParseInput(string input)
+    {
+        var lines = input.Split(Environment.NewLine);
+        var left = new List<int>(lines.Length);
+        var right = new List<int>(lines.Length);
+
+        foreach (var line in lines)
+        {
+            var split = line.Split("   ");
+            left.Add(int.Parse(split[0].Trim()));
+            right.Add(int.Parse(split[1].Trim()));
+        }
+        
+        return (left, right);
     }
 }

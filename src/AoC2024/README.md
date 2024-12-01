@@ -17,14 +17,11 @@
                                                           #
 </pre>
 
-# 🎄 Advent of Code 🎄
+# 🎄 Advent of Code 2024 🎄
 
-My solutions for the [Advent of Code](https://adventofcode.com/events)
+My solutions for the [Advent of Code 2024](https://adventofcode.com/2024)
 
-| Year | Solution                          | Completed |
-|------|-----------------------------------|-----------|
-| 2021 | Advent of Code 2021               | 12/25     |
-| 2022 | Advent of Code 2022               | 22/25     |
-| 2023 | Advent of Code 2023               | 10/25     |
-| 2024 | [Advent of Code 2024](.src/2024/) | 0/25      |
+| Day | Name                                     | Done |
+|-----|------------------------------------------|------|
+| 01  | [Historian Hysteria](./Solution/Day1.cs) | 2/2  |
 

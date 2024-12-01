@@ -11,6 +11,13 @@ public class Day1Test
     public void TestPart1()
     {
         var inputFile = Path.Combine("AoC2024", "Data", "day_01.txt");
-        Assert.That(_day1.Part1(inputFile), Is.EqualTo("Part 1"));
+        Assert.That(_day1.Part1(inputFile), Is.EqualTo("11"));
+    }
+
+    [Test]
+    public void TestPart2()
+    {
+        var inputFile = Path.Combine("AoC2024", "Data", "day_01.txt");
+        Assert.That(_day1.Part2(inputFile), Is.EqualTo("31"));
     }
 }
