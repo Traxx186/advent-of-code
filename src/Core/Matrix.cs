@@ -7,17 +7,17 @@ public readonly struct Matrix<T>
     /// <summary>
     /// The items inside the matrix.
     /// </summary>
-    private List<List<T>> Tiles { get; }
-    
+    public List<List<T>> Tiles { get; }
+
     /// <summary>
     /// How many columns the matrix contains.
     /// </summary>
-    private int Width { get; }
+    public int Width { get; }
 
     /// <summary>
     /// How many rows the matrix contains.
     /// </summary>
-    private int Height { get; }
+    public int Height { get; }
 
     public Matrix(List<List<T>> tiles)
     {

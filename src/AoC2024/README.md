@@ -23,5 +23,5 @@ My solutions for the [Advent of Code 2024](https://adventofcode.com/2024)
 
 | Day | Name                                     | Done |
 |-----|------------------------------------------|------|
-| 01  | [Historian Hysteria](./Solution/Day1.cs) | 2/2  |
-
+| 01  | [Historian Hysteria](Solution/Day01.cs)  | 2/2  |
+| 02  | [Red-Nosed Reports](Solution/Day02.cs)   | 2/2  |

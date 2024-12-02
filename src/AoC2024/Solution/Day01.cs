@@ -2,7 +2,7 @@ using AdventOfCode.Core;
 
 namespace AdventOfCode.Aoc2024.Solution;
 
-public class Day1 : ISolution
+public class Day01 : ISolution
 {
     public string Name => "Day 1";
 

@@ -6,18 +6,18 @@ public interface ISolution
     /// The display name of the assignment.
     /// </summary>
     string Name { get; }
-    
+
     /// <summary>
     /// Executes the first part of the days assignment.
     /// </summary>
-    /// <param name="inputFilePath">Path to the input file.</param>
+    /// <param name="inputFile">Path to the input file.</param>
     /// <returns>Result of the executed assignment.</returns>
-    string Part1(string inputFilePath);
-    
+    string Part1(string inputFile);
+
     /// <summary>
     /// Executes the first part of the days assignment.
     /// </summary>
-    /// <param name="inputFilePath">Path to the input file.</param>
+    /// <param name="inputFile">Path to the input file.</param>
     /// <returns>Result of the executed assignment.</returns>
-    string Part2(string inputFilePath);
+    string Part2(string inputFile);
 }
