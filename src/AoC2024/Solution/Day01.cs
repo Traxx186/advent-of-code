@@ -1,6 +1,6 @@
 using AdventOfCode.Core;
 
-namespace AdventOfCode.Aoc2024.Solution;
+namespace AdventOfCode.AoC2024.Solution;
 
 public class Day01 : ISolution
 {
