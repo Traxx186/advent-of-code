@@ -1,4 +1,4 @@
-using AdventOfCode.Aoc2024.Solution;
+using AdventOfCode.AoC2024.Solution;
 
 namespace Test.AoC2024;
 
