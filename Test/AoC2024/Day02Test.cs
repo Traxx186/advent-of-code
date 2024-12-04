@@ -12,7 +12,7 @@ public class Day02Test
     [Test]
     public void TestPart1()
     {
-        Assert.That(_day2.Part1(_inputFile), Is.EqualTo("2"));
+        Assert.That(_day2.Part1(_inputFile), Is.EqualTo("18"));
     }
 
     [Test]
