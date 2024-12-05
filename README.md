@@ -21,10 +21,10 @@
 
 My solutions for the [Advent of Code](https://adventofcode.com/events)
 
-| Year | Solution                          | Completed |
-|------|-----------------------------------|-----------|
-| 2021 | Advent of Code 2021               | 12/25     |
-| 2022 | Advent of Code 2022               | 22/25     |
-| 2023 | Advent of Code 2023               | 10/25     |
-| 2024 | [Advent of Code 2024](.src/2024/) | 0/25      |
+| Year | Solution                           | Completed |
+|------|------------------------------------|-----------|
+| 2021 | Advent of Code 2021                | 12/25     |
+| 2022 | Advent of Code 2022                | 22/25     |
+| 2023 | Advent of Code 2023                | 10/25     |
+| 2024 | [Advent of Code 2024](src/AoC2024) | 01/25     |
 

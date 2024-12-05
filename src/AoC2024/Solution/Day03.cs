@@ -7,7 +7,7 @@ public partial class Day03 : ISolution
 {
     public string Name => "Day 3";
 
-    [GeneratedRegex("mul\\(\\d+,\\d+\\)|do\\(\\)|don't\\(\\)", RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Compiled, "en-US")]
+    [GeneratedRegex(@"mul\(\d+,\d+\)|do\(\)|don't\(\)", RegexOptions.IgnoreCase | RegexOptions.Multiline, "en-US")]
     private static partial Regex ValidOperatorsRegex();
 
     public string Part1(string inputFile)
@@ -17,7 +17,7 @@ public partial class Day03 : ISolution
         var result = matches
             .Where(match => match.Value.Contains("mul"))
             .Select(match => match.Value.Split(',')
-                .Select(s => string.Join(string.Empty, s.Where(c => char.IsNumber(c))))
+                .Select(s => string.Join(string.Empty, s.Where(char.IsNumber)))
                 .ToArray()
             )
             .Select(nums => int.Parse(nums.First()) * int.Parse(nums.Last()))
@@ -38,23 +38,21 @@ public partial class Day03 : ISolution
 
         foreach (var match in matches)
         {
-            if (match == "do()")
+            switch (match)
             {
-                enabled = true;
-                continue;
-            }
-
-            if (match == "don't()")
-            {
-                enabled = false;
-                continue;
+                case "do()":
+                    enabled = true;
+                    continue;
+                case "don't()":
+                    enabled = false;
+                    continue;
             }
 
             if (!enabled)
                 continue;
 
             var numbers = match.Split(',')
-                .Select(s => string.Join(string.Empty, s.Where(c => char.IsNumber(c))))
+                .Select(s => string.Join(string.Empty, s.Where(char.IsNumber)))
                 .Select(int.Parse)
                 .ToArray();
 

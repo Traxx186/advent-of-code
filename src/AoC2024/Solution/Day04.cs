@@ -7,7 +7,7 @@ public partial class Day04 : ISolution
 {
     public string Name => "Day 4";
 
-    [GeneratedRegex("XMAS", RegexOptions.IgnoreCase | RegexOptions.Compiled, "en-US")]
+    [GeneratedRegex("XMAS", RegexOptions.IgnoreCase, "en-US")]
     private static partial Regex XmasRegex();
 
     public string Part1(string inputFile)
@@ -26,7 +26,7 @@ public partial class Day04 : ISolution
 
         for (var i = 0; i < grid[0].Length; i++)
         {
-            var col = grid.Select(row => row[i]).ToArray();
+            var col = grid.Select(r => r[i]).ToArray();
             var colText = string.Join(string.Empty, col);
             var revColText = string.Join(string.Empty, col.Reverse());
 
