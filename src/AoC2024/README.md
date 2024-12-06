@@ -21,9 +21,10 @@
 
 My solutions for the [Advent of Code 2024](https://adventofcode.com/2024)
 
-| Day | Name                                     | Done |
-|-----|------------------------------------------|------|
-| 01  | [Historian Hysteria](Solution/Day01.cs)  | 2/2  |
-| 02  | [Red-Nosed Reports](Solution/Day02.cs)   | 2/2  |
-| 03  | [Mull It Over](Solution/Day03.cs)        | 2/2  |
-| 04  | [Ceres Search](Solution/Day04.cs)        | 2/2  |
+| Day | Name                                    | Done |
+|-----|-----------------------------------------|------|
+| 01  | [Historian Hysteria](Solution/Day01.cs) | 2/2  |
+| 02  | [Red-Nosed Reports](Solution/Day02.cs)  | 2/2  |
+| 03  | [Mull It Over](Solution/Day03.cs)       | 2/2  |
+| 04  | [Ceres Search](Solution/Day04.cs)       | 2/2  |
+| 05  | [Print Queue](Solution/Day05.cs)        | 0/2  |
