@@ -3,6 +3,7 @@ using AdventOfCode.Core.Point;
 namespace AdventOfCode.Core;
 
 public readonly struct Matrix<T>
+where T : IEquatable<T>
 {
     /// <summary>
     /// The items inside the matrix.
@@ -26,6 +27,21 @@ public readonly struct Matrix<T>
         Height = Tiles.Count;
     }
 
+    public Cell<T>? SearchForValue(T searchValue)
+    {
+        for (var y = 0; y < Height; y++)
+        {
+            for (var x = 0; x < Width; x++)
+            {
+                var value = Tiles[y][x];
+                if (value.Equals(searchValue))
+                    return new Cell<T>(value, new Point2D<int>(x, y));
+            }
+        }
+        
+        return null;
+    }
+    
     /// <summary>
     /// Tries to get a tile at the given location
     /// </summary>
@@ -33,32 +49,30 @@ public readonly struct Matrix<T>
     /// <param name="column">The column to search in.</param>
     /// <param name="tile">The found tile.</param>
     /// <returns>If the tile has been found.</returns>
-    public bool TryGetTile(int row, int column, out T tile)
+    public bool TryGetTile(int row, int column, out Cell<T> tile)
     {
-        try
-        {
-            tile = Tiles[row][column];
-            return true;
-        }
-        catch (IndexOutOfRangeException e)
+        if ((uint)column >= Height || (uint)row >= Width)
         {
             tile = default!;
-            return false;   
+            return false;
         }
+        
+        tile = new Cell<T>(Tiles[row][column], new Point2D<int>(column, row));
+        return true;
     }
 }
 
-public readonly struct Cell<T>(T value, Point2D<uint> coordinates) : IEquatable<Cell<T>>
+public readonly struct Cell<T>(T value, Point2D<int> coordinates) : IEquatable<Cell<T>>
 {
     /// <summary>
     /// The value of the cell.
     /// </summary>
-    private T Value { get; } = value;
+    public T Value { get; } = value;
     
     /// <summary>
     /// The coordinates of the cell.
     /// </summary>
-    private Point2D<uint> Coordinates { get; } = coordinates;
+    public Point2D<int> Coordinates { get; } = coordinates;
 
     public override int GetHashCode() =>
         Value.GetHashCode() ^ Coordinates.GetHashCode();

@@ -5,9 +5,9 @@ namespace AdventOfCode.Core.Point;
 public readonly struct Point2D<T>(T x, T y) : IEquatable<Point2D<T>>
     where T : INumber<T>
 {
-    private T X { get; } = x;
+    public T X { get; } = x;
 
-    private T Y { get; } = y;
+    public T Y { get; } = y;
 
     public static Point2D<T> operator +(Point2D<T> lhs, Point2D<T> rhs) => 
         new(lhs.X + rhs.X, lhs.Y + rhs.Y);
