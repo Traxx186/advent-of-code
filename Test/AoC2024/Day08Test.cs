@@ -18,6 +18,6 @@ public class Day08Test
     [Test]
     public void TestPart2()
     {
-        Assert.That(_day8.Part2(_inputFile), Is.EqualTo("11387"));
+        Assert.That(_day8.Part2(_inputFile), Is.EqualTo("34"));
     }
 }

@@ -45,9 +45,9 @@ public class Day06 : ISolution
         var matrix = ParseInput(data);
         var potentialObstacles = new HashSet<Point2D<int>>();
 
-        for (var row = 0; row < matrix.Tiles.Count; row++)
+        for (var row = 0; row < matrix.Height; row++)
         {
-            for (var col = 0; col < matrix.Tiles[row].Count; col++)
+            for (var col = 0; col < matrix.Width; col++)
             {
                 if (Obstructions.Contains(matrix.Tiles[row][col]))
                     continue;
