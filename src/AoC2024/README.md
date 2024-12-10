@@ -30,4 +30,5 @@ My solutions for the [Advent of Code 2024](https://adventofcode.com/2024)
 | 05  | [Print Queue](Solution/Day05.cs)           | 2/2  |
 | 06  | [Guard Gallivant](Solution/Day06.cs)       | 2/2  |
 | 07  | [Bridge Repair](Solution/Day07.cs)         | 2/2  |
-| 08  | [Resonant Collinearity](Solution/Day08.cs) | 0/2  |
+| 08  | [Resonant Collinearity](Solution/Day08.cs) | 2/2  |
+| 09  | [Disk Fragmenter](Solution/Day09.cs)       | 2/2  |
