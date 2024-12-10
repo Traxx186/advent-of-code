@@ -11,7 +11,7 @@ public class Day07 : ISolution
         var data = Calendar.LoadInput(inputFile);
         var input = ParseInput(data);
 
-        return input.Where(target => IsPossible(target.Value, 1, target.Key, target.Value[0]))
+        return input.Where(target => IsPossible(target.Value, 1, target.Key, target.Value[0], false))
             .Sum(correct => correct.Key)
             .ToString();
     }
@@ -21,7 +21,7 @@ public class Day07 : ISolution
         var data = Calendar.LoadInput(inputFile);
         var input = ParseInput(data);
 
-        return input.Where(target => IsPossible(target.Value, 1, target.Key, target.Value[0]))
+        return input.Where(target => IsPossible(target.Value, 1, target.Key, target.Value[0], true))
             .Sum(correct => correct.Key)
             .ToString();
     }
@@ -36,14 +36,14 @@ public class Day07 : ISolution
             .ToArray();
     }
 
-    private static bool IsPossible(int[] numbers, int index, long target, long current)
+    private static bool IsPossible(int[] numbers, int index, long target, long current, bool concat)
     {
         if (index == numbers.Length)
             return current == target;
 
         var next = numbers[index];
-        return IsPossible(numbers, index + 1, target, current + next)
-               || IsPossible(numbers, index + 1, target, current * next)
-               || IsPossible(numbers, index + 1, target, long.Parse($"{current}{next}"));
+        return IsPossible(numbers, index + 1, target, current + next, concat)
+               || IsPossible(numbers, index + 1, target, current * next, concat)
+               || (concat && IsPossible(numbers, index + 1, target, long.Parse($"{current}{next}"), concat));
     }
 }
