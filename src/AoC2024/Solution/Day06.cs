@@ -116,11 +116,8 @@ public class Day06 : ISolution
         if (guardChar.Length == 0)
             return null;
         
-        var position = matrix.SearchForValue(guardChar[0]);
-        if (!position.HasValue)
-            return null;
-
-        var direction = position.Value.Value switch
+        var position = matrix.SearchForValues(guardChar[0]).First();
+        var direction = position.Value switch
         {
             '^' => Direction.North,
             '>' => Direction.East,
@@ -130,7 +127,7 @@ public class Day06 : ISolution
         
         return new Guard
         {
-            Position = position.Value.Coordinates,
+            Position = position.Coordinates,
             Direction = direction
         };
     }

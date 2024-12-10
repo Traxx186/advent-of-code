@@ -69,7 +69,8 @@ public class Day09 : ISolution
             var found = false;
             for (var start = 1; start < end; start += 2)
             {
-                if (fileSystem[start] < fileSystem[end]) continue;
+                if (fileSystem[start] < fileSystem[end]) 
+                    continue;
                 
                 for (var i = 0; i < fileSystem[end]; i++)
                     checksum += (long)(end / 2) * (openPlaces[start] + i);

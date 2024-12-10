@@ -27,19 +27,25 @@ where T : IEquatable<T>
         Height = Tiles.Count;
     }
 
-    public Cell<T>? SearchForValue(T searchValue)
+    /// <summary>
+    /// Searches in the matrix for any occuring item based on the search value.
+    /// </summary>
+    /// <param name="searchValue">item to search for.</param>
+    /// <returns>List of occuring items</returns>
+    public Cell<T>[] SearchForValues(T searchValue)
     {
+        var values = new List<Cell<T>>();
         for (var y = 0; y < Height; y++)
         {
             for (var x = 0; x < Width; x++)
             {
                 var value = Tiles[y][x];
                 if (value.Equals(searchValue))
-                    return new Cell<T>(value, new Point2D<int>(x, y));
+                    values.Add(new Cell<T>(value, new Point2D<int>(x, y)));
             }
         }
         
-        return null;
+        return values.ToArray();
     }
     
     /// <summary>

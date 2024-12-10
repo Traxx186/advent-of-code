@@ -32,3 +32,4 @@ My solutions for the [Advent of Code 2024](https://adventofcode.com/2024)
 | 07  | [Bridge Repair](Solution/Day07.cs)         | 2/2  |
 | 08  | [Resonant Collinearity](Solution/Day08.cs) | 2/2  |
 | 09  | [Disk Fragmenter](Solution/Day09.cs)       | 2/2  |
+| 10  | [Hoof It](Solution/Day10.cs)               | 2/2  |
