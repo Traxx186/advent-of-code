@@ -1,5 +1,4 @@
-﻿using AdventOfCode.AoC2024;
-using AdventOfCode.AoC2024.Solution;
+﻿using AdventOfCode.AoC2024.Solution;
 using AdventOfCode.Core;
 
 ISolution[] solutions =
@@ -16,7 +15,8 @@ ISolution[] solutions =
     new Day10(),
     new Day11(),
     new Day12(),
-]; 
+    new Day13(),
+];
 
 var aoc = new Calendar(2024, solutions);
 aoc.Run();

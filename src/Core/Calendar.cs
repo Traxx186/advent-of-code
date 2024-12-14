@@ -12,7 +12,7 @@ public class Calendar(int year, ISolution[] solutions)
         Console.WriteLine("Type 'exit' to stop the program \n");
 
         for (var i = 0; i < solutions.Length; i++)
-            Console.WriteLine($"[{i + 1}] {solutions[i].Name}");
+            Console.WriteLine($"[{i + 1:00}] {solutions[i].Name}");
 
         while (true)
         {
