@@ -35,4 +35,5 @@ My solutions for the [Advent of Code 2024](https://adventofcode.com/2024)
 | 10  | [Hoof It](Solution/Day10.cs)               | 2/2  |
 | 11  | [Plutonian Pebbles](Solution/Day11.cs)     | 2/2  |
 | 12  | [Garden Groups](Solution/Day12.cs)         | 2/2  |
-| 13  | [Claw Contraption](Solution/Day13.cs)      | 0/2  |
+| 13  | [Claw Contraption](Solution/Day13.cs)      | 2/2  |
+| 14  | [Restroom Redoubt](Solution/Day14.cs)      | 2/2  |
