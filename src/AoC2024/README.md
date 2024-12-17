@@ -37,3 +37,4 @@ My solutions for the [Advent of Code 2024](https://adventofcode.com/2024)
 | 12  | [Garden Groups](Solution/Day12.cs)         | 2/2  |
 | 13  | [Claw Contraption](Solution/Day13.cs)      | 2/2  |
 | 14  | [Restroom Redoubt](Solution/Day14.cs)      | 2/2  |
+| 15  | [Warehouse Woes](Solution/Day15.cs)        | 0/2  |

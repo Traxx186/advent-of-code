@@ -57,7 +57,7 @@ where T : IEquatable<T>
     /// <returns>If the tile has been found.</returns>
     public bool TryGetTile(int row, int column, out Cell<T> tile)
     {
-        if ((uint)column >= Height || (uint)row >= Width)
+        if ((uint)row >= Height || (uint)column >= Width)
         {
             tile = default!;
             return false;
