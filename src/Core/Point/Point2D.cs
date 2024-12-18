@@ -14,16 +14,19 @@ public readonly struct Point2D<T>(T x, T y) : IEquatable<Point2D<T>>
 
     public static Point2D<T> operator -(Point2D<T> lhs, Point2D<T> rhs) => 
         new(lhs.X - rhs.X, lhs.Y - rhs.Y);
+    
+    public static Point2D<T> operator -(Point2D<T> point) => 
+        new(-point.X, -point.Y);
 
     public static Point2D<T> operator *(Point2D<T> lhs, Point2D<T> rhs) =>
         new(lhs.X * rhs.X, lhs.Y * rhs.Y);
-
+    
     public static bool operator ==(Point2D<T> left, Point2D<T> right) =>
         left.Equals(right);
 
     public static bool operator !=(Point2D<T> left, Point2D<T> right) =>
         !(left == right);
-
+    
     public bool Equals(Point2D<T> other) =>
         EqualityComparer<T>.Default.Equals(X, other.X) && EqualityComparer<T>.Default.Equals(Y, other.Y);
     
