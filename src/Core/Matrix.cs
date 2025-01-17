@@ -1,4 +1,4 @@
-using AdventOfCode.Core.Point;
+using System.Numerics;
 
 namespace AdventOfCode.Core;
 
@@ -41,7 +41,7 @@ where T : IEquatable<T>
             {
                 var value = Tiles[y][x];
                 if (value.Equals(searchValue))
-                    values.Add(new Cell<T>(value, new Point2D<int>(x, y)));
+                    values.Add(new Cell<T>(value, new Vector2(x, y)));
             }
         }
         
@@ -55,7 +55,7 @@ where T : IEquatable<T>
     /// <param name="column">The column to search in.</param>
     /// <param name="tile">The found tile.</param>
     /// <returns>If the tile has been found.</returns>
-    public bool TryGetTile(int row, int column, out Cell<T> tile)
+    public bool TryGetTile(float row, float column, out Cell<T> tile)
     {
         if ((uint)row >= Height || (uint)column >= Width)
         {
@@ -63,12 +63,12 @@ where T : IEquatable<T>
             return false;
         }
         
-        tile = new Cell<T>(Tiles[row][column], new Point2D<int>(column, row));
+        tile = new Cell<T>(Tiles[(int)row][(int)column], new Vector2(column, row));
         return true;
     }
 }
 
-public readonly struct Cell<T>(T value, Point2D<int> coordinates) : IEquatable<Cell<T>>
+public readonly struct Cell<T>(T value, Vector2 coordinates) : IEquatable<Cell<T>>
 {
     /// <summary>
     /// The value of the cell.
@@ -78,7 +78,7 @@ public readonly struct Cell<T>(T value, Point2D<int> coordinates) : IEquatable<C
     /// <summary>
     /// The coordinates of the cell.
     /// </summary>
-    public Point2D<int> Coordinates { get; } = coordinates;
+    public Vector2 Coordinates { get; } = coordinates;
 
     public override int GetHashCode() =>
         Value.GetHashCode() ^ Coordinates.GetHashCode();

@@ -1,5 +1,5 @@
+using System.Numerics;
 using AdventOfCode.Core;
-using AdventOfCode.Core.Point;
 
 namespace AdventOfCode.AoC2024.Solution;
 
@@ -83,7 +83,7 @@ public class Day12 : ISolution
         for (var i = 0; i < _directions.Count; i++)
         {
             var coordinates = _directions.Values.ElementAt(i);
-            var nextCellCoords = new Point2D<int>(plant.Coordinates.X + coordinates.Item1, plant.Coordinates.Y + coordinates.Item2);
+            var nextCellCoords = new Vector2(plant.Coordinates.X + coordinates.Item1, plant.Coordinates.Y + coordinates.Item2);
             var isCellOut = !_matrix.TryGetTile(nextCellCoords.Y, nextCellCoords.X, out var nextCell);
 
             if (isCellOut || nextCell.Value != plant.Value)
@@ -101,8 +101,7 @@ public class Day12 : ISolution
                 continue;
             
             var cornerCoords = _directions.Values.ElementAt((i + 1) % 4);
-            var nextCornerCoords = new Point2D<int>(plant.Coordinates.X + cornerCoords.Item1,
-                plant.Coordinates.Y + cornerCoords.Item2);
+            var nextCornerCoords = new Vector2(plant.Coordinates.X + cornerCoords.Item1, plant.Coordinates.Y + cornerCoords.Item2);
             var isCornerOut = !_matrix.TryGetTile(nextCornerCoords.Y, nextCornerCoords.X, out var nextCorner);
 
             if (isCornerOut || nextCorner.Value != plant.Value)
@@ -111,8 +110,7 @@ public class Day12 : ISolution
                 continue;
             }
 
-            var innerCornerCoords = new Point2D<int>(nextCellCoords.X + cornerCoords.Item1,
-                nextCellCoords.Y + cornerCoords.Item2);
+            var innerCornerCoords = new Vector2(nextCellCoords.X + cornerCoords.Item1, nextCellCoords.Y + cornerCoords.Item2);
             var isInnerCornerOut =
                 !_matrix.TryGetTile(innerCornerCoords.Y, innerCornerCoords.X, out var nextInnerCorner);
 

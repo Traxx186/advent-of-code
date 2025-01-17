@@ -1,3 +1,4 @@
+using System.Numerics;
 using AdventOfCode.Core;
 using AdventOfCode.Core.Point;
 
@@ -51,7 +52,7 @@ public class Day16 : ISolution
             .ToString();
     }
 
-    private static Dictionary<State, int> FindPathInMaze(Matrix<char> grid, Point2D<int> goal)
+    private static Dictionary<State, int> FindPathInMaze(Matrix<char> grid, Vector2 goal)
     {
         var queue = new PriorityQueue<State, int>();
         var visited = new Dictionary<State, int>();
@@ -93,12 +94,12 @@ public class Day16 : ISolution
         return new Matrix<char>(map);
     }
 
-    private static Dictionary<Direction, Point2D<int>> Directions => new()
+    private static Dictionary<Direction, Vector2> Directions => new()
     {
-        { Direction.North, new Point2D<int>(0, -1) },
-        { Direction.East, new Point2D<int>(1, 0) },
-        { Direction.South, new Point2D<int>(0, 1) },
-        { Direction.West, new Point2D<int>(-1, 0) }
+        { Direction.North, new Vector2(0, -1) },
+        { Direction.East, new Vector2(1, 0) },
+        { Direction.South, new Vector2(0, 1) },
+        { Direction.West, new Vector2(-1, 0) }
     };
 
     private static IEnumerable<(State, int cost)> Steps(Matrix<char> map, State state, bool forward)
@@ -116,5 +117,5 @@ public class Day16 : ISolution
         }
     }
     
-    private readonly record struct State(Point2D<int> Current, Point2D<int> Direction);
+    private readonly record struct State(Vector2 Current, Vector2 Direction);
 }

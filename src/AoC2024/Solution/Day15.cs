@@ -1,5 +1,5 @@
+using System.Numerics;
 using AdventOfCode.Core;
-using AdventOfCode.Core.Point;
 
 namespace AdventOfCode.AoC2024.Solution;
 
@@ -33,17 +33,17 @@ public class Day15 : ISolution
             while (nextPosition != robot.Coordinates)
             {
                 var prev = nextPosition - direction;
-                map.Tiles[nextPosition.Y][nextPosition.X] = map.Tiles[prev.Y][prev.X];
+                map.Tiles[(int)nextPosition.Y][(int)nextPosition.X] = map.Tiles[(int)prev.Y][(int)prev.X];
                 nextPosition = prev; 
             }
 
-            map.Tiles[nextPosition.Y][nextPosition.X] = EmptyPlot;
+            map.Tiles[(int)nextPosition.Y][(int)nextPosition.X] = EmptyPlot;
             
             var nextRobotPosition = robot.Coordinates + direction;
             map.TryGetTile(nextRobotPosition.Y, nextRobotPosition.X, out robot);
         }
         
-        var total = map.Tiles.SelectMany((rows, y) => rows.Select((_, x) => new Point2D<int>(x, y)))
+        var total = map.Tiles.SelectMany((rows, y) => rows.Select((_, x) => new Vector2(x, y)))
             .Where(point => map.TryGetTile(point.Y, point.X, out var tile) && tile.Value == Box)
             .Select(point => 100 * point.Y + point.X)
             .Sum();
@@ -68,22 +68,22 @@ public class Day15 : ISolution
                 continue;
 
             foreach (var surrounding in surroundings)
-                scratchMap.Tiles[surrounding.Y][surrounding.X] = map.Tiles[surrounding.Y][surrounding.X];
+                scratchMap.Tiles[(int)surrounding.Y][(int)surrounding.X] = map.Tiles[(int)surrounding.Y][(int)surrounding.X];
 
             foreach (var surrounding in surroundings)
-                map.Tiles[surrounding.Y][surrounding.X] = EmptyPlot;
+                map.Tiles[(int)surrounding.Y][(int)surrounding.X] = EmptyPlot;
 
             foreach (var surrounding in surroundings)
             {
                 var newPosition = surrounding + direction;
-                map.Tiles[newPosition.Y][newPosition.X] = scratchMap.Tiles[surrounding.Y][surrounding.X];
+                map.Tiles[(int)newPosition.Y][(int)newPosition.X] = scratchMap.Tiles[(int)surrounding.Y][(int)surrounding.X];
             }
 
             var nextRobotPosition = robot.Coordinates + direction;
             map.TryGetTile(nextRobotPosition.Y, nextRobotPosition.X, out robot);
         }
 
-        var total = map.Tiles.SelectMany((rows, y) => rows.Select((_, x) => new Point2D<int>(x, y)))
+        var total = map.Tiles.SelectMany((rows, y) => rows.Select((_, x) => new Vector2(x, y)))
             .Where(point => map.TryGetTile(point.Y, point.X, out var tile) && tile.Value == '[')
             .Select(point => 100 * point.Y + point.X)
             .Sum();
@@ -128,12 +128,12 @@ public class Day15 : ISolution
         return new Matrix<char>(newMap);
     }
 
-    private static HashSet<Point2D<int>> SearchLargeMap(Matrix<char> map, Point2D<int> robotPosition, Point2D<int> direction)
+    private static HashSet<Vector2> SearchLargeMap(Matrix<char> map, Vector2 robotPosition, Vector2 direction)
     {
-        var surrounding = new HashSet<Point2D<int>>([robotPosition]);
-        var possiblePositions = new Stack<Point2D<int>>([robotPosition]);
-        var left = new Point2D<int>(-1, 0);
-        var right = new Point2D<int>(1, 0);
+        var surrounding = new HashSet<Vector2>([robotPosition]);
+        var possiblePositions = new Stack<Vector2>([robotPosition]);
+        var left = new Vector2(-1, 0);
+        var right = new Vector2(1, 0);
 
         while (possiblePositions.TryPop(out var current))
         {
@@ -162,12 +162,12 @@ public class Day15 : ISolution
         return surrounding;
     }
     
-    private static Point2D<int> GetDirection(char direction) => direction switch
+    private static Vector2 GetDirection(char direction) => direction switch
     {
-        '^' => new Point2D<int>(0, -1),
-        '>' => new Point2D<int>(1, 0),
-        'v' => new Point2D<int>(0, 1),
-        '<' => new Point2D<int>(-1, 0),
-        _ => new Point2D<int>(0, 0),
+        '^' => new Vector2(0, -1),
+        '>' => new Vector2(1, 0),
+        'v' => new Vector2(0, 1),
+        '<' => new Vector2(-1, 0),
+        _ => new Vector2(0, 0),
     };
 }

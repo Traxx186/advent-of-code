@@ -1,5 +1,5 @@
+using System.Numerics;
 using AdventOfCode.Core;
-using AdventOfCode.Core.Point;
 
 namespace AdventOfCode.AoC2024.Solution;
 
@@ -19,7 +19,7 @@ public class Day06 : ISolution
         if (!guard.HasValue)
             return string.Empty;
         
-        var visitedTiles = new HashSet<Point2D<int>>([guard.Value.Position]);
+        var visitedTiles = new HashSet<Vector2>([guard.Value.Position]);
         while (true)
         {
             var (nextX, nextY) = NextPosition(guard.Value.Position.X, guard.Value.Position.Y, guard.Value.Direction);
@@ -43,7 +43,7 @@ public class Day06 : ISolution
     {
         var data = Calendar.LoadInput(inputFile);
         var matrix = ParseInput(data);
-        var potentialObstacles = new HashSet<Point2D<int>>();
+        var potentialObstacles = new HashSet<Vector2>();
 
         for (var row = 0; row < matrix.Height; row++)
         {
@@ -59,7 +59,7 @@ public class Day06 : ISolution
                 if (!guard.HasValue)
                     continue;
                 
-                var visitedTiles = new HashSet<Point2D<int>>();
+                var visitedTiles = new HashSet<Vector2>();
                 while (true)
                 {
                     if (!visitedTiles.Add(guard.Value.Position))
@@ -95,7 +95,7 @@ public class Day06 : ISolution
         return new Matrix<char>(data);
     }
 
-    private static (int, int) NextPosition(int x, int y, Direction direction)
+    private static (float, float) NextPosition(float x, float y, Direction direction)
     {
         return direction switch
         {
@@ -146,6 +146,6 @@ public class Day06 : ISolution
     private struct Guard
     {
         public Direction Direction { get; set; }
-        public Point2D<int> Position { get; set; }
+        public Vector2 Position { get; set; }
     }
 }

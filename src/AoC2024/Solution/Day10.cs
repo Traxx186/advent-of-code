@@ -1,5 +1,5 @@
+using System.Numerics;
 using AdventOfCode.Core;
-using AdventOfCode.Core.Point;
 
 namespace AdventOfCode.AoC2024.Solution;
 
@@ -39,7 +39,7 @@ public class Day10 : ISolution
     private static int FindTrail(Matrix<int> matrix, Cell<int> point)
     {
         var visited = new HashSet<Cell<int>>();
-        var queue = new Queue<Point2D<int>>();
+        var queue = new Queue<Vector2>();
 
         visited.Add(point);
         queue.Enqueue(point.Coordinates);
