@@ -1,6 +1,5 @@
 using System.Numerics;
 using AdventOfCode.Core;
-using AdventOfCode.Core.Point;
 
 namespace AdventOfCode.AoC2024.Solution;
 
@@ -52,7 +51,7 @@ public class Day16 : ISolution
             .ToString();
     }
 
-    private static Dictionary<State, int> FindPathInMaze(Matrix<char> grid, Vector2 goal)
+    private static Dictionary<State, int> FindPathInMaze(Grid<char> grid, Vector2 goal)
     {
         var queue = new PriorityQueue<State, int>();
         var visited = new Dictionary<State, int>();
@@ -85,13 +84,13 @@ public class Day16 : ISolution
         return visited;
     }
     
-    private static Matrix<char> ParseInput(string input)
+    private static Grid<char> ParseInput(string input)
     {
         var lines = input.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
         var map = lines.Select(line => line.ToCharArray().ToList())
             .ToList();
 
-        return new Matrix<char>(map);
+        return new Grid<char>(map);
     }
 
     private static Dictionary<Direction, Vector2> Directions => new()
@@ -102,7 +101,7 @@ public class Day16 : ISolution
         { Direction.West, new Vector2(-1, 0) }
     };
 
-    private static IEnumerable<(State, int cost)> Steps(Matrix<char> map, State state, bool forward)
+    private static IEnumerable<(State, int cost)> Steps(Grid<char> map, State state, bool forward)
     {
         foreach (var direction in Directions)
         {

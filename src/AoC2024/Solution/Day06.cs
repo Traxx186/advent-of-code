@@ -52,7 +52,7 @@ public class Day06 : ISolution
                 if (Obstructions.Contains(matrix.Tiles[row][col]))
                     continue;
                 
-                var newMatrix = new Matrix<char>(matrix.Tiles);
+                var newMatrix = new Grid<char>(matrix.Tiles);
                 newMatrix.Tiles[row][col] = '#';
                 
                 var guard = FindGuard(matrix);
@@ -86,13 +86,13 @@ public class Day06 : ISolution
         return potentialObstacles.Count.ToString();
     }
 
-    private static Matrix<char> ParseInput(string input)
+    private static Grid<char> ParseInput(string input)
     {
         var data = input.Split(Environment.NewLine)
             .Select(line => line.ToList())
             .ToList();
         
-        return new Matrix<char>(data);
+        return new Grid<char>(data);
     }
 
     private static (float, float) NextPosition(float x, float y, Direction direction)
@@ -107,16 +107,16 @@ public class Day06 : ISolution
         };
     }
 
-    private static Guard? FindGuard(Matrix<char> matrix)
+    private static Guard? FindGuard(Grid<char> grid)
     {
-        var guardChar = matrix.Tiles.SelectMany(row => row)
+        var guardChar = grid.Tiles.SelectMany(row => row)
             .Where(cell => !Obstructions.Contains(cell) && cell != Step)
             .ToArray();
 
         if (guardChar.Length == 0)
             return null;
         
-        var position = matrix.SearchForValues(guardChar[0]).First();
+        var position = grid.SearchForValues(guardChar[0]).First();
         var direction = position.Value switch
         {
             '^' => Direction.North,

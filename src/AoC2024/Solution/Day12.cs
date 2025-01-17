@@ -7,7 +7,7 @@ public class Day12 : ISolution
 {
     public string Name => "Day 12";
 
-    private Matrix<char> _matrix;
+    private Grid<char> _grid;
     
     private readonly Dictionary<Direction, (int, int)> _directions = new()
     {
@@ -19,15 +19,15 @@ public class Day12 : ISolution
     
     public string Part1(string inputFile)
     {
-        _matrix = ParseInput(Calendar.LoadInput(inputFile));
+        _grid = ParseInput(Calendar.LoadInput(inputFile));
         var visited = new HashSet<Cell<char>>();
         var cost = 0;
 
-        for (var row = 0; row < _matrix.Height; row++)
+        for (var row = 0; row < _grid.Height; row++)
         {
-            for (var col = 0; col < _matrix.Width; col++)
+            for (var col = 0; col < _grid.Width; col++)
             {
-                _matrix.TryGetTile(row, col, out var plant);
+                _grid.TryGetTile(row, col, out var plant);
                 if (visited.Contains(plant))
                     continue;
                 
@@ -41,15 +41,15 @@ public class Day12 : ISolution
 
     public string Part2(string inputFile)
     {
-        _matrix = ParseInput(Calendar.LoadInput(inputFile));
+        _grid = ParseInput(Calendar.LoadInput(inputFile));
         var visited = new HashSet<Cell<char>>();
         var cost = 0;
 
-        for (var row = 0; row < _matrix.Height; row++)
+        for (var row = 0; row < _grid.Height; row++)
         {
-            for (var col = 0; col < _matrix.Width; col++)
+            for (var col = 0; col < _grid.Width; col++)
             {
-                _matrix.TryGetTile(row, col, out var plant);
+                _grid.TryGetTile(row, col, out var plant);
                 if (visited.Contains(plant))
                     continue;
                 
@@ -61,18 +61,18 @@ public class Day12 : ISolution
         return cost.ToString();
     }
 
-    private static Matrix<char> ParseInput(string input)
+    private static Grid<char> ParseInput(string input)
     {
         var lines = input.Split(Environment.NewLine)
             .Select(line => line.ToList())
             .ToList();
         
-        return new Matrix<char>(lines);
+        return new Grid<char>(lines);
     }
 
     private (int edges, int cells, int corners) FindPlot(HashSet<Cell<char>> visited, Cell<char> plant)
     {
-        if (visited.Contains(plant) || !_matrix.TryGetTile(plant.Coordinates.X, plant.Coordinates.Y, out _))
+        if (visited.Contains(plant) || !_grid.TryGetTile(plant.Coordinates.X, plant.Coordinates.Y, out _))
             return (0, 0, 0);
         
         visited.Add(plant);
@@ -84,7 +84,7 @@ public class Day12 : ISolution
         {
             var coordinates = _directions.Values.ElementAt(i);
             var nextCellCoords = new Vector2(plant.Coordinates.X + coordinates.Item1, plant.Coordinates.Y + coordinates.Item2);
-            var isCellOut = !_matrix.TryGetTile(nextCellCoords.Y, nextCellCoords.X, out var nextCell);
+            var isCellOut = !_grid.TryGetTile(nextCellCoords.Y, nextCellCoords.X, out var nextCell);
 
             if (isCellOut || nextCell.Value != plant.Value)
                 edges++;
@@ -102,7 +102,7 @@ public class Day12 : ISolution
             
             var cornerCoords = _directions.Values.ElementAt((i + 1) % 4);
             var nextCornerCoords = new Vector2(plant.Coordinates.X + cornerCoords.Item1, plant.Coordinates.Y + cornerCoords.Item2);
-            var isCornerOut = !_matrix.TryGetTile(nextCornerCoords.Y, nextCornerCoords.X, out var nextCorner);
+            var isCornerOut = !_grid.TryGetTile(nextCornerCoords.Y, nextCornerCoords.X, out var nextCorner);
 
             if (isCornerOut || nextCorner.Value != plant.Value)
             {
@@ -112,7 +112,7 @@ public class Day12 : ISolution
 
             var innerCornerCoords = new Vector2(nextCellCoords.X + cornerCoords.Item1, nextCellCoords.Y + cornerCoords.Item2);
             var isInnerCornerOut =
-                !_matrix.TryGetTile(innerCornerCoords.Y, innerCornerCoords.X, out var nextInnerCorner);
+                !_grid.TryGetTile(innerCornerCoords.Y, innerCornerCoords.X, out var nextInnerCorner);
 
             if (!isInnerCornerOut && nextInnerCorner.Value == plant.Value)
                 corners++;

@@ -27,16 +27,16 @@ public class Day10 : ISolution
         return trails.ToString();
     }
 
-    private static Matrix<int> ParseInput(string input)
+    private static Grid<int> ParseInput(string input)
     {
         var parsedInput = input.Split(Environment.NewLine)
             .Select(line => line.Select(c => c - '0').ToList())
             .ToList();
 
-        return new Matrix<int>(parsedInput);
+        return new Grid<int>(parsedInput);
     }
 
-    private static int FindTrail(Matrix<int> matrix, Cell<int> point)
+    private static int FindTrail(Grid<int> grid, Cell<int> point)
     {
         var visited = new HashSet<Cell<int>>();
         var queue = new Queue<Vector2>();
@@ -46,26 +46,26 @@ public class Day10 : ISolution
 
         while (queue.TryDequeue(out var current))
         {
-            if (!matrix.TryGetTile(current.Y, current.X, out var tile))
+            if (!grid.TryGetTile(current.Y, current.X, out var tile))
                 continue;
 
-            matrix.TryGetTile(current.Y - 1, current.X, out var nextUpTile);
+            grid.TryGetTile(current.Y - 1, current.X, out var nextUpTile);
             if (nextUpTile.Coordinates.Y >= 0 && nextUpTile.Value == tile.Value + 1)
                 if (visited.Add(nextUpTile))
                     queue.Enqueue(nextUpTile.Coordinates);
 
-            matrix.TryGetTile(current.Y + 1, current.X, out var nextDownTile);
-            if (nextDownTile.Coordinates.Y < matrix.Height && nextDownTile.Value == tile.Value + 1)
+            grid.TryGetTile(current.Y + 1, current.X, out var nextDownTile);
+            if (nextDownTile.Coordinates.Y < grid.Height && nextDownTile.Value == tile.Value + 1)
                 if (visited.Add(nextDownTile))
                     queue.Enqueue(nextDownTile.Coordinates);
 
-            matrix.TryGetTile(current.Y, current.X - 1, out var nextLeftTile);
+            grid.TryGetTile(current.Y, current.X - 1, out var nextLeftTile);
             if (nextLeftTile.Coordinates.X >= 0 && nextLeftTile.Value == tile.Value + 1)
                 if (visited.Add(nextLeftTile))
                     queue.Enqueue(nextLeftTile.Coordinates);
 
-            matrix.TryGetTile(current.Y, current.X + 1, out var nextRightTile);
-            if (nextRightTile.Coordinates.X >= matrix.Width || nextRightTile.Value != tile.Value + 1)
+            grid.TryGetTile(current.Y, current.X + 1, out var nextRightTile);
+            if (nextRightTile.Coordinates.X >= grid.Width || nextRightTile.Value != tile.Value + 1)
                 continue;
 
             if (visited.Add(nextRightTile))
@@ -75,7 +75,7 @@ public class Day10 : ISolution
         return visited.Count(cell => cell.Value == 9);
     }
 
-    private static int FindUniqueTrail(Matrix<int> matrix, Cell<int> point)
+    private static int FindUniqueTrail(Grid<int> grid, Cell<int> point)
     {
         var paths = new List<List<Cell<int>>>();
         var queue = new Queue<List<Cell<int>>>();
@@ -90,7 +90,7 @@ public class Day10 : ISolution
                 continue;
             }
 
-            matrix.TryGetTile(current.Coordinates.Y - 1, current.Coordinates.X, out var nextUpTile);
+            grid.TryGetTile(current.Coordinates.Y - 1, current.Coordinates.X, out var nextUpTile);
             if (nextUpTile.Coordinates.Y >= 0 && nextUpTile.Value == current.Value + 1)
             {
                 var foundPaths = currentPath
@@ -106,8 +106,8 @@ public class Day10 : ISolution
                 }
             }
 
-            matrix.TryGetTile(current.Coordinates.Y + 1, current.Coordinates.X, out var nextDownTile);
-            if (nextDownTile.Coordinates.Y < matrix.Height && nextDownTile.Value == current.Value + 1)
+            grid.TryGetTile(current.Coordinates.Y + 1, current.Coordinates.X, out var nextDownTile);
+            if (nextDownTile.Coordinates.Y < grid.Height && nextDownTile.Value == current.Value + 1)
             {
                 var foundPaths = currentPath
                     .Count(path =>
@@ -122,7 +122,7 @@ public class Day10 : ISolution
                 }
             }
 
-            matrix.TryGetTile(current.Coordinates.Y, current.Coordinates.X - 1, out var nextLeftTile);
+            grid.TryGetTile(current.Coordinates.Y, current.Coordinates.X - 1, out var nextLeftTile);
             if (nextLeftTile.Coordinates.X >= 0 && nextLeftTile.Value == current.Value + 1)
             {
                 var foundPaths = currentPath
@@ -138,8 +138,8 @@ public class Day10 : ISolution
                 }
             }
 
-            matrix.TryGetTile(current.Coordinates.Y, current.Coordinates.X + 1, out var nextRightTile);
-            if (nextRightTile.Coordinates.X >= matrix.Width || nextRightTile.Value != current.Value + 1)
+            grid.TryGetTile(current.Coordinates.Y, current.Coordinates.X + 1, out var nextRightTile);
+            if (nextRightTile.Coordinates.X >= grid.Width || nextRightTile.Value != current.Value + 1)
                 continue;
 
             var numPaths = currentPath

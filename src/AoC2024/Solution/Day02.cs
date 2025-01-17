@@ -44,11 +44,11 @@ public class Day02 : ISolution
         return safeReports.ToString();
     }
 
-    private static Matrix<int> ParseInput(string input)
+    private static Grid<int> ParseInput(string input)
     {
         var lines = input.Split(Environment.NewLine);
         var data = lines.Select(l => l.Split(' ').Select(int.Parse).ToList()).ToList();
 
-        return new Matrix<int>(data);
+        return new Grid<int>(data);
     }
 }

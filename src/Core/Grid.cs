@@ -2,7 +2,7 @@ using System.Numerics;
 
 namespace AdventOfCode.Core;
 
-public readonly struct Matrix<T>
+public readonly struct Grid<T>
 where T : IEquatable<T>
 {
     /// <summary>
@@ -20,7 +20,7 @@ where T : IEquatable<T>
     /// </summary>
     public int Height { get; }
 
-    public Matrix(List<List<T>> tiles)
+    public Grid(List<List<T>> tiles)
     {
         Tiles = tiles;
         Width = Tiles[0].Count;

@@ -1,5 +1,5 @@
+using System.Numerics;
 using AdventOfCode.Core;
-using AdventOfCode.Core.Point;
 
 namespace AdventOfCode.AoC2024.Solution;
 
@@ -11,7 +11,7 @@ public class Day08 : ISolution
     {
         var data = Calendar.LoadInput(inputFile);
         var matrix = ParseInput(data);
-        var antinodes = new HashSet<Point2D<int>>();
+        var antinodes = new HashSet<Vector2>();
 
         for (var y = 0; y < matrix.Height; y++)
         {
@@ -36,8 +36,8 @@ public class Day08 : ISolution
                         var rowDistance = frequencyY - y;
                         var colDistance = frequencyX - x;
 
-                        var antinodes1 = new Point2D<int>(x - colDistance, y - rowDistance);
-                        var antinodes2 = new Point2D<int>(frequencyX + colDistance, frequencyY + rowDistance);
+                        var antinodes1 = new Vector2(x - colDistance, y - rowDistance);
+                        var antinodes2 = new Vector2(frequencyX + colDistance, frequencyY + rowDistance);
 
                         if (antinodes1.Y < matrix.Height && antinodes1.Y >= 0 && antinodes1.X < matrix.Width && antinodes1.X >= 0)
                             antinodes.Add(antinodes1);
@@ -56,7 +56,7 @@ public class Day08 : ISolution
     {
         var data = Calendar.LoadInput(inputFile);
         var matrix = ParseInput(data);
-        var antinodes = new HashSet<Point2D<int>>();
+        var antinodes = new HashSet<Vector2>();
 
         for (var y = 0; y < matrix.Height; y++)
         {
@@ -70,7 +70,7 @@ public class Day08 : ISolution
                     )
                     .ToArray();
                 
-                var visitedTiles = new HashSet<Point2D<int>>();
+                var visitedTiles = new HashSet<Vector2>();
                 for (var frequencyY = 0; frequencyY < frequencyGrid.Length; frequencyY++)
                 {
                     for (var frequencyX = 0; frequencyX < frequencyGrid[0].Length; frequencyX++)
@@ -82,18 +82,18 @@ public class Day08 : ISolution
                         var rowDistance = frequencyY - y;
                         var colDistance = frequencyX - x;
 
-                        var step1 = new Point2D<int>(x, y);
-                        var step2 = new Point2D<int>(frequencyX, frequencyY);
+                        var step1 = new Vector2(x, y);
+                        var step2 = new Vector2(frequencyX, frequencyY);
                         var step1Out = false;
                         var step2Out = false;
 
-                        if (frequencyGrid[step1.Y][step1.X] == col)
+                        if (frequencyGrid[(int)step1.Y][(int)step1.X] == col)
                         {
                             if (!visitedTiles.Add(step1))
                                 antinodes.Add(step1);
                         }
 
-                        if (frequencyGrid[step2.Y][step2.X] == col)
+                        if (frequencyGrid[(int)step2.Y][(int)step2.X] == col)
                         {
                             if (!visitedTiles.Add(step2))
                                 antinodes.Add(step2);
@@ -101,8 +101,8 @@ public class Day08 : ISolution
 
                         while (true)
                         {
-                            var antinodes1 = new Point2D<int>(step1.X - colDistance, step1.Y - rowDistance);
-                            var antinodes2 = new Point2D<int>(step2.X + colDistance, step2.Y + rowDistance);
+                            var antinodes1 = new Vector2(step1.X - colDistance, step1.Y - rowDistance);
+                            var antinodes2 = new Vector2(step2.X + colDistance, step2.Y + rowDistance);
 
                             if (!step1Out && antinodes1.Y < matrix.Height && antinodes1.Y >= 0 && antinodes1.X < matrix.Width && antinodes1.X >= 0)
                                 antinodes.Add(antinodes1);
@@ -128,12 +128,12 @@ public class Day08 : ISolution
         return antinodes.Count.ToString();
     }
 
-    private static Matrix<char> ParseInput(string input)
+    private static Grid<char> ParseInput(string input)
     {
         var data = input.Split(Environment.NewLine)
             .Select(line => line.ToList())
             .ToList();
 
-        return new Matrix<char>(data);
+        return new Grid<char>(data);
     }
 }

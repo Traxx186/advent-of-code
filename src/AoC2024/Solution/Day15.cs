@@ -91,7 +91,7 @@ public class Day15 : ISolution
         return total.ToString();
     }
 
-    private static (Matrix<char>, char[]) ParseInput(string input)
+    private static (Grid<char>, char[]) ParseInput(string input)
     {
         var parts = input.Split(Environment.NewLine + Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
         var map = parts.First()
@@ -99,10 +99,10 @@ public class Day15 : ISolution
             .Select(line => line.ToCharArray().ToList())
             .ToList();
 
-        return (new Matrix<char>(map), parts.Last().ToCharArray());
+        return (new Grid<char>(map), parts.Last().ToCharArray());
     }
 
-    private static Matrix<char> DoubleMap(Matrix<char> map)
+    private static Grid<char> DoubleMap(Grid<char> map)
     {
         var newMap = new List<List<char>>(map.Height);
 
@@ -125,10 +125,10 @@ public class Day15 : ISolution
             }
         }
         
-        return new Matrix<char>(newMap);
+        return new Grid<char>(newMap);
     }
 
-    private static HashSet<Vector2> SearchLargeMap(Matrix<char> map, Vector2 robotPosition, Vector2 direction)
+    private static HashSet<Vector2> SearchLargeMap(Grid<char> map, Vector2 robotPosition, Vector2 direction)
     {
         var surrounding = new HashSet<Vector2>([robotPosition]);
         var possiblePositions = new Stack<Vector2>([robotPosition]);
