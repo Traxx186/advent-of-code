@@ -4,7 +4,7 @@ namespace AdventOfCode.AoC2024.Solution;
 
 public class Day05 : ISolution
 {
-    public string Name => "Day 5";
+    public string Name => "Print Queue";
     
     public string Part1(string inputFile)
     {

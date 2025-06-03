@@ -4,7 +4,7 @@ namespace AdventOfCode.AoC2024.Solution;
 
 public class Day02 : ISolution
 {
-    public string Name => "Day 2";
+    public string Name => "Red-Nosed Reports";
 
     public string Part1(string inputFile)
     {

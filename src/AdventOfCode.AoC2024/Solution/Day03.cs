@@ -5,7 +5,7 @@ namespace AdventOfCode.AoC2024.Solution;
 
 public partial class Day03 : ISolution
 {
-    public string Name => "Day 3";
+    public string Name => "Mull It Over";
 
     [GeneratedRegex(@"mul\(\d+,\d+\)|do\(\)|don't\(\)", RegexOptions.IgnoreCase | RegexOptions.Multiline, "en-US")]
     private static partial Regex ValidOperatorsRegex();

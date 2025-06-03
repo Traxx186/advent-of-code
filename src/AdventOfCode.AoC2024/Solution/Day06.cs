@@ -8,7 +8,7 @@ public class Day06 : ISolution
     private const char Step = '.';
     private static readonly char[] Obstructions = ['#', 'O'];
     
-    public string Name => "Day 6";
+    public string Name => "Guard Gallivant";
     
     public string Part1(string inputFile)
     {

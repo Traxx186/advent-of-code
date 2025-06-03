@@ -10,7 +10,7 @@ public partial class Day14 : ISolution
     private const float Width = 101f;
     private const float Height = 103f;
     
-    public string Name => "Day 14";
+    public string Name => "Restroom Redoubt";
     
     [GeneratedRegex(@"-?\d{1,}", RegexOptions.Compiled, "en-US")]
     private static partial Regex NumberRegex();

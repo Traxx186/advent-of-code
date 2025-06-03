@@ -4,7 +4,7 @@ namespace AdventOfCode.AoC2024.Solution;
 
 public class Day09 : ISolution
 {
-    public string Name => "Day 9";
+    public string Name => "Disk Fragmenter";
     
     public string Part1(string inputFile)
     {

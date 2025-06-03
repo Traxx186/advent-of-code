@@ -3,7 +3,6 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <Version>1.0.0</Version>
-        <RootNamespace>AdventOfCode.2024</RootNamespace>
     </PropertyGroup>
     
     <ItemGroup>

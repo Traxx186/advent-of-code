@@ -5,7 +5,7 @@ namespace AdventOfCode.AoC2024.Solution;
 
 public class Day12 : ISolution
 {
-    public string Name => "Day 12";
+    public string Name => "Garden Groups";
 
     private Grid<char> _grid;
     

@@ -10,7 +10,7 @@ public class Day15 : ISolution
     private const char Robot = '@';
     private const char Box = 'O';
     
-    public string Name => "Day 15";
+    public string Name => "Warehouse Woes";
 
     public string Part1(string inputFile)
     {

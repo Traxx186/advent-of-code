@@ -4,7 +4,7 @@ namespace AdventOfCode.AoC2024.Solution;
 
 public class Day11 : ISolution
 {
-    public string Name => "Day 11";
+    public string Name => "Plutonian Pebbles";
     
     public string Part1(string inputFile)
     {

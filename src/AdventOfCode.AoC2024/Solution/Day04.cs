@@ -5,7 +5,7 @@ namespace AdventOfCode.AoC2024.Solution;
 
 public partial class Day04 : ISolution
 {
-    public string Name => "Day 4";
+    public string Name => "Ceres Search";
 
     [GeneratedRegex("XMAS", RegexOptions.IgnoreCase, "en-US")]
     private static partial Regex XmasRegex();

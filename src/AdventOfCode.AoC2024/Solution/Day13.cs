@@ -6,7 +6,7 @@ namespace AdventOfCode.AoC2024.Solution;
 
 public partial class Day13 : ISolution
 {
-    public string Name => "Day 13";
+    public string Name => "Claw Contraption";
     
     [GeneratedRegex(@"-?\d{1,}", RegexOptions.Compiled, "en-US")]
     private static partial Regex NumberRegex();
