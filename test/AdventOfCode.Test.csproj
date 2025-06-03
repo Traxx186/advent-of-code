@@ -1,16 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <AssemblyName>Test</AssemblyName>
         <RootNamespace>Test</RootNamespace>
         <LangVersion>default</LangVersion>
-        <PackageId>Test</PackageId>
         <Authors>Traxx186</Authors>
     </PropertyGroup>
 
@@ -26,28 +24,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\src\AoC2024\AoC2024.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\src\AdventOfCode.AoC2024\AdventOfCode.AoC2024.csproj" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>
         <None Include="*\**\Data\*.txt" CopyToOutputDirectory="PreserveNewest" />
-        <None Update="AoC2024\Data\day_07.txt">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="AoC2024\Data\day_06.txt">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="AoC2024\Data\day_08.txt">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="AoC2024\Data\day_15.txt">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Update="AoC2024\Data\day_04.txt">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
     </ItemGroup>
 </Project>
