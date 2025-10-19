@@ -8,7 +8,7 @@ public class Calendar(int year, ISolution[] solutions)
     public void Run()
     {
         Console.WriteLine($"\ud83c\udf84 Advent of Code {year} Solutions \ud83c\udf84");
-        Console.WriteLine("       Justin van der Kruit       ");
+        Console.WriteLine("       Justin van der Kruit       \n");
         Console.WriteLine("Type 'exit' to stop the program \n");
 
         for (var i = 0; i < solutions.Length; i++)

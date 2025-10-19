@@ -24,10 +24,59 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\src\AdventOfCode.AoC2023\AdventOfCode.AoC2023.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\src\AdventOfCode.AoC2024\AdventOfCode.AoC2024.csproj" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>
         <None Include="*\**\Data\*.txt" CopyToOutputDirectory="PreserveNewest" />
+        <None Update="AoC2023\Data\day_01.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_02.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_03.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_04.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_05.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_06.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_07.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_08.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_09.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_10.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_11.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_12.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_13.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_14.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_15.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="AoC2023\Data\day_16.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 </Project>

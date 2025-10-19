@@ -7,7 +7,7 @@ public class Day09Test
 {
     private readonly Day09 _day9 = new();
 
-    private readonly string _inputFile = Path.Combine("AdventOfCode.AoC2024", "Data", "day_09.txt");
+    private readonly string _inputFile = Path.Combine("AoC2024", "Data", "day_09.txt");
 
     [Test]
     public void TestPart1()
