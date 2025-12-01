@@ -10,6 +10,7 @@ ISolution[] solutions =
     new Day05(),
     new Day06(),
     new Day07(),
+    new Day08(),
 ];
 
 var aoc = new Calendar(2023, solutions);

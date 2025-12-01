@@ -34,7 +34,7 @@ public class Day07 : ISolution
             .ToString();
     }
 
-    private Hand ParseInputLine(string line)
+    private static Hand ParseInputLine(string line)
     {
         var parts = line.Split(' ',  StringSplitOptions.TrimEntries);
         var bid = int.Parse(parts.Last());
@@ -95,7 +95,7 @@ public class Hand(int bid, List<CardType> cards) : IEquatable<Hand>, IComparable
         
         return Cards
             .Zip(other!.Cards, (card, otherCard) => card.CompareTo(otherCard))
-            .First(x => x != 0);
+            .FirstOrDefault(x => x != 0);
     }
 }
 
@@ -149,12 +149,12 @@ public static class Card
             .ThenBy(x => x.Key)
             .FirstOrDefault();
 
-        if (maxNoJoker.Key == default)
-        {
-            map[maxNoJoker.Key] += jokerCount;
-            map[CardType.Joker] = 0;
-        }
+        if (maxNoJoker.Key == CardType.Joker) 
+            return map;
         
+        map[maxNoJoker.Key] += jokerCount;
+        map[CardType.Joker] = 0;
+
         return map;
     }
 }

@@ -17,14 +17,21 @@
                                                           #
 </pre>
 
-# 🎄 Advent of Code 🎄
+# 🎄 Advent of Code 2025 🎄
 
-My solutions for the [Advent of Code](https://adventofcode.com/events)
+My solutions for the [Advent of Code 2025](https://adventofcode.com/2025)
 
-| Year | Solution                                        | Completed |
-|------|-------------------------------------------------|-----------|
-| 2021 | Advent of Code 2021                             | 12/25     |
-| 2022 | Advent of Code 2022                             | 22/25     |
-| 2023 | [Advent of Code 2023](src/AdventOfCode.AoC2023) | 10/25     |
-| 2024 | [Advent of Code 2024](src/AdventOfCode.AoC2024) | 16/25     |
-
+| Day | Name                                 | Done |
+|-----|--------------------------------------|------|
+| 01  | [Secret Entrance](Solution/Day01.cs) | 0/2  |
+| 02  | ...                                  | 0/2  |
+| 03  | ...                                  | 0/2  |
+| 04  | ...                                  | 0/2  |
+| 05  | ...                                  | 0/2  |
+| 06  | ...                                  | 0/2  |
+| 07  | ...                                  | 0/2  |
+| 08  | ...                                  | 0/2  |
+| 09  | ...                                  | 0/2  |
+| 10  | ...                                  | 0/2  |
+| 11  | ...                                  | 0/2  |
+| 12  | ...                                  | 0/2  |
