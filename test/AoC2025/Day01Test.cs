@@ -1,4 +1,4 @@
-using AdventOfCode.AoC2024.Solution;
+using AdventOfCode.AoC2025.Solution;
 
 namespace Test.AoC2025;
 
@@ -12,12 +12,12 @@ public class Day01Test
     [Test]
     public void TestPart1()
     {
-        Assert.That(_day1.Part1(_inputFile), Is.EqualTo("11"));
+        Assert.That(_day1.Part1(_inputFile), Is.EqualTo("3"));
     }
 
     [Test]
     public void TestPart2()
     {
-        Assert.That(_day1.Part2(_inputFile), Is.EqualTo("31"));
+        Assert.That(_day1.Part2(_inputFile), Is.EqualTo("6"));
     }
 }

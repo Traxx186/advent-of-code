@@ -23,7 +23,7 @@ My solutions for the [Advent of Code 2025](https://adventofcode.com/2025)
 
 | Day | Name                                 | Done |
 |-----|--------------------------------------|------|
-| 01  | [Secret Entrance](Solution/Day01.cs) | 0/2  |
+| 01  | [Secret Entrance](Solution/Day01.cs) | 2/2  |
 | 02  | ...                                  | 0/2  |
 | 03  | ...                                  | 0/2  |
 | 04  | ...                                  | 0/2  |
