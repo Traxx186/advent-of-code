@@ -4,6 +4,7 @@ using AdventOfCode.Core;
 ISolution[] solutions =
 [
     new Day01(),
+    new Day02(),
 ];
 
 var aoc = new Calendar(2025, solutions);
