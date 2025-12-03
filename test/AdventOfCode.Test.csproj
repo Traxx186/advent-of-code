@@ -34,5 +34,8 @@
 
     <ItemGroup>
         <None Include="*\**\Data\*.txt" CopyToOutputDirectory="PreserveNewest" />
+        <None Update="AoC2025\Data\day_03.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 </Project>

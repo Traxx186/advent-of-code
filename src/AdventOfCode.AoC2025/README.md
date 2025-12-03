@@ -24,8 +24,8 @@ My solutions for the [Advent of Code 2025](https://adventofcode.com/2025)
 | Day | Name                                 | Done |
 |-----|--------------------------------------|------|
 | 01  | [Secret Entrance](Solution/Day01.cs) | 2/2  |
-| 02  | [Gift Shop](Solution/Day02.cs)       | 0/2  |
-| 03  | ...                                  | 0/2  |
+| 02  | [Gift Shop](Solution/Day02.cs)       | 2/2  |
+| 03  | [Lobby](Solution/Day03.cs)           | 2/2  |
 | 04  | ...                                  | 0/2  |
 | 05  | ...                                  | 0/2  |
 | 06  | ...                                  | 0/2  |
