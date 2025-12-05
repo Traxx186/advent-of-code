@@ -21,17 +21,17 @@
 
 My solutions for the [Advent of Code 2025](https://adventofcode.com/2025)
 
-| Day | Name                                 | Done |
-|-----|--------------------------------------|------|
-| 01  | [Secret Entrance](Solution/Day01.cs) | 2/2  |
-| 02  | [Gift Shop](Solution/Day02.cs)       | 2/2  |
-| 03  | [Lobby](Solution/Day03.cs)           | 2/2  |
-| 04  | ...                                  | 0/2  |
-| 05  | ...                                  | 0/2  |
-| 06  | ...                                  | 0/2  |
-| 07  | ...                                  | 0/2  |
-| 08  | ...                                  | 0/2  |
-| 09  | ...                                  | 0/2  |
-| 10  | ...                                  | 0/2  |
-| 11  | ...                                  | 0/2  |
-| 12  | ...                                  | 0/2  |
+| Day | Name                                     | Done |
+|-----|------------------------------------------|------|
+| 01  | [Secret Entrance](Solution/Day01.cs)     | 2/2  |
+| 02  | [Gift Shop](Solution/Day02.cs)           | 2/2  |
+| 03  | [Lobby](Solution/Day03.cs)               | 2/2  |
+| 04  | [Printing Department](Solution/Day04.cs) | 2/2  |
+| 05  | ...                                      | 0/2  |
+| 06  | ...                                      | 0/2  |
+| 07  | ...                                      | 0/2  |
+| 08  | ...                                      | 0/2  |
+| 09  | ...                                      | 0/2  |
+| 10  | ...                                      | 0/2  |
+| 11  | ...                                      | 0/2  |
+| 12  | ...                                      | 0/2  |
