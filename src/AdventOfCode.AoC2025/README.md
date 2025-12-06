@@ -27,7 +27,7 @@ My solutions for the [Advent of Code 2025](https://adventofcode.com/2025)
 | 02  | [Gift Shop](Solution/Day02.cs)           | 2/2  |
 | 03  | [Lobby](Solution/Day03.cs)               | 2/2  |
 | 04  | [Printing Department](Solution/Day04.cs) | 2/2  |
-| 05  | ...                                      | 0/2  |
+| 05  | [Cafeteria](Solution/Day05.cs)           | 2/2  |
 | 06  | ...                                      | 0/2  |
 | 07  | ...                                      | 0/2  |
 | 08  | ...                                      | 0/2  |
