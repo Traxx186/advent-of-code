@@ -30,7 +30,7 @@ My solutions for the [Advent of Code 2025](https://adventofcode.com/2025)
 | 05  | [Cafeteria](Solution/Day05.cs)           | 2/2  |
 | 06  | [Trash Compactor](Solution/Day06.cs)     | 2/2  |
 | 07  | [Laboratories](Solution/Day07.cs)        | 2/2  |
-| 08  | ...                                      | 0/2  |
+| 08  | [Playground](Solution/Day08.cs)          | 2/2  |
 | 09  | ...                                      | 0/2  |
 | 10  | ...                                      | 0/2  |
 | 11  | ...                                      | 0/2  |

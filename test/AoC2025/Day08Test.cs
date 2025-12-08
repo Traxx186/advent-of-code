@@ -1,0 +1,24 @@
+using AdventOfCode.AoC2025.Solution;
+
+namespace Test.AoC2025;
+
+[TestFixture]
+public class Day08Test
+{
+    private readonly Day08 _day8 = new();
+
+    private readonly string _inputFile = Path.Combine("AoC2025", "Data", "day_08.txt");
+
+    [Test]
+    public void TestPart1()
+    {
+        Assert.That(_day8.Part1(_inputFile), Is.EqualTo("20"));
+    }
+
+    [Test]
+    public void TestPart2()
+    {
+        Assert.That(_day8.Part2(_inputFile), Is.EqualTo("25272"));
+    }
+    
+}
